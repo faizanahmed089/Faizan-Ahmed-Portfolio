@@ -1,260 +1,468 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" type="image/png" href="./images/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hafsa Sheikh | Game Developer Portfolio</title>
+  <style>
+    /* Reset */
+    *{margin:0; padding:0; box-sizing:border-box;}
+    body{font-family:Arial, sans-serif; line-height:1.6; background:#0d1117; color:#e6edf3;}
+    a{text-decoration:none; color:inherit;}
+    img,iframe{max-width:100%; border-radius:10px;}
 
-  <!-- Put your site title here -->
-  <title>
-    Hi, I’m Faizan Ahmed — a Unity 3D and Unreal Developer crafting immersive, performant games for PC, Mobile & VR..
-  </title>
+    /* Navbar */
+    nav{
+      position:sticky; top:0; z-index:1000;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:12px 20px; background:#161b22; color:#fff;
+      border-bottom:1px solid #30363d;
+      backdrop-filter:saturate(120%) blur(6px);
+    }
+    nav .left a{font-size:20px; font-weight:bold; color:#00ffae;}
+    nav .right a{
+      margin-left:15px; padding:8px 14px; border-radius:6px;
+      font-size:14px; transition:0.3s;
+    }
+    nav .btn-hire{background:#00ffae; color:#111;}
+    nav .btn-hire:hover{background:#00cc88;}
+    nav .btn-resume{background:#30363d; color:#fff;}
+    nav .btn-resume:hover{background:#444;}
 
-  <meta name="description" content="Add small description of yourslef.">
-  <!-- Add some coding keywords below, Ex: (React, CSS etc) -->
-  <meta name="keywords" content="Put your name, skills and some coding keywords" />
-  <link rel="stylesheet" href="index.css" />
+    /* Sections */
+    section{padding:60px 20px; max-width:1100px; margin:auto;}
+    h1,h2,h3{margin-bottom:20px; font-weight:bold;}
+    h1{font-size:42px;}
+    h2{font-size:28px; color:#00ffae;}
+    h3{color:#00ffae;}
+
+    /* Hero */
+  /*  #hero{text-align:center; padding:100px 20px;}
+    #hero p{max-width:700px; margin:auto; font-size:18px; color:#c9d1d9;}*/
+
+    .stats{display:flex; justify-content:center; gap:30px; margin-top:30px; flex-wrap:wrap;}
+    .stat{background:#161b22; padding:20px 30px; border-radius:10px; text-align:center; min-width:150px; border:1px solid #30363d;}
+    .stat h3{font-size:24px; margin-bottom:5px; color:#00ffae;}
+/* Hero Card */
+.hero-card {
+  background:#161b22;
+  border:1px solid #30363d;
+  border-radius:16px;
+  padding:40px;
+  max-width:900px;
+  margin:auto;
+  box-shadow:0 0 25px rgba(0,0,0,0.5);
+  text-align:left;
+}
+.hero-tags {
+  font-size:14px;
+  color:#00ffae;
+  letter-spacing:1px;
+  margin-bottom:14px;
+}
+.hero-card h1 {
+  font-size:32px;
+  line-height:1.3;
+  margin-bottom:20px;
+}
+.hero-card .highlight {  border-bottom:2px solid #00ffae;}
+.hero-desc {
+  font-size:16px;
+  color:#c9d1d9;
+  margin-bottom:20px;
+}
+.hero-skills {  display:flex; flex-wrap:wrap; gap:10px; margin-bottom:25px;}
+.hero-skills span {
+  background:#21262d;
+  color:#e6edf3;
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:13px;
+}
+.hero-cta a {
+  display:inline-block; margin-right:12px; padding:10px 18px;
+  border-radius:8px; font-weight:bold; font-size:14px;
+}
+.btn-main {
+  background:#00ffae; color:#111;
+}
+.btn-main:hover {
+  background:#00d294;
+}
+.btn-secondary {
+  background:#30363d; color:#e6edf3;
+}
+.btn-secondary:hover {
+  background:#444;
+}
+
+
+
+
+
+
+    /* Projects */
+    .projects-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; margin-top:20px;}
+    .project-card{
+      background:#161b22; padding:20px; border-radius:12px;
+      border:1px solid #30363d; transition:0.3s;
+    }
+    .project-card:hover{transform:translateY(-4px); border-color:#00ffae;}
+    .project-icon{font-size:32px; margin-bottom:10px;}
+    .project-card p{color:#c9d1d9;}
+    .tags{margin-top:10px;}
+    .tags span{
+      display:inline-block; margin:3px; padding:4px 10px;
+      background:#21262d; border-radius:20px; font-size:12px; color:#00ffae;
+    }
+    .btn-group{margin-top:12px;}
+    .btn-icon{
+      display:inline-block; margin:4px; padding:6px 12px; font-size:14px;
+      background:#21262d; color:#00ffae; border-radius:6px; transition:0.3s;
+    }
+    .btn-icon:hover{background:#00ffae; color:#111;}
+ .thumb{
+      height:160px;background:
+        linear-gradient(120deg, rgba(122,162,255,.18), rgba(99,230,190,.18)),
+        linear-gradient(180deg, #12192a, #0f1420);
+      display:flex;align-items:center;justify-content:center;font-size:46px;color:#9db8ff;
+      border-bottom:1px solid var(--line)
+    }
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ensures the gif fills the frame without distortion */
+}
+
+    /* Timeline */
+    .timeline{border-left:3px solid #00ffae; margin-left:15px; padding-left:20px;}
+    .timeline div{margin-bottom:25px;}
+    .timeline h4{margin-bottom:6px; color:#e6edf3;}
+    .timeline p{color:#c9d1d9;}
+
+    /* Skills */
+    .skill-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .skill-card{border:1px solid var(--line);border-radius:12px;background:#0f1420;padding:16px}
+    .skill-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .skill{padding:8px 10px;border-radius:999px;background:#0f1420;border:1px solid var(--line);font-size:13px}
+
+
+    /* Contact */
+    #contact .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; margin-top:12px;}
+    .contact-card{background:#161b22; border:1px solid #30363d; border-radius:12px; padding:16px;}
+    .contact-card a{color:#00ffae;}
+    .contact-form{margin-top:20px; background:#161b22; border:1px solid #30363d; border-radius:12px; padding:20px;}
+    .form-row{display:flex; gap:12px; flex-wrap:wrap;}
+    input, textarea, button{
+      width:100%; padding:10px 12px; border-radius:8px; border:1px solid #30363d; background:#0d1117; color:#e6edf3;
+    }
+    textarea{min-height:110px; resize:vertical;}
+    button{background:#00ffae; color:#111; font-weight:bold; cursor:pointer;}
+    button:hover{background:#00d294;}
+
+    footer{text-align:center; padding:22px; background:#161b22; color:#8b949e;}
+  </style>
 </head>
-
 <body>
 
-  <!-- ***** Header ***** -->
-
-  <header class="header" role="banner" id="top">
-    <div class="row">
-      <nav class="nav" role="navigation">
-        <ul class="nav__items">
-          <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
-          <li class="nav__item"><a href="#clients" class="nav__link">Clients</a></li>
-          <li class="nav__item">
-            <a href="#about" class="nav__link">About</a>
-          </li>
-          <li class="nav__item">
-            <a href="#contact" class="nav__link">Contact</a>
-          </li>
-        </ul>
-      </nav>
+  <!-- Navbar -->
+  <nav>
+    <div class="left"><a href="#hero">Hafsa Sheikh</a></div>
+    <div class="right">
+      <a href="https://www.upwork.com/freelancers/hafsas60" target="_blank" class="btn-hire">Hire Me</a>
+      <a href="https://drive.google.com/uc?export=download&id=16LEDys7TgvajJ_3S-zd0M67wDAE7YmSp" class="btn-resume">Download Resume</a>
     </div>
-    <div class="header__text-box row">
-      <div class="header__text">
-        <h1 class="heading-primary">
-          <!-- Replace the following name with your name -->
-          <span>Syed Ali Hussnain</span>
-        </h1>
-        <!-- Put a small paragraph about yourself -->
-        <p>A Web Developer based in Lahore, Pakistan.</p>
-        <a href="#contact" class="btn btn--pink">Get in touch</a>
+  </nav>
+
+ 
+
+
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="hero-card">
+      <p class="hero-tags">UNITY 3D • GAMEPLAY • OPTIMIZATION</p>
+      <h1>Hi, I’m <span class="highlight">Hafsa Sheikh</span> — a Unity 3D Developer crafting immersive, performant games for PC, Mobile & VR.</h1>
+      <p class="hero-desc">
+        I build clean, scalable gameplay systems, integrate assets (animations, audio, VFX), 
+        and optimize performance and memory usage. Strong in 3D math and UI/UX.
+      </p>
+
+      <div class="hero-skills">
+        <span>Unity (C#)</span><span>Gameplay Systems</span><span>Physics</span>
+        <span>UI/HUD</span><span>Profiling & Optimization</span>
+        <span>Git/Bitbucket</span><span>PlayFab</span><span>VR (Oculus)</span>
       </div>
-    </div>
-  </header>
 
-  <main role="main">
+      <div class="hero-cta">
 
-    <!-- ***** Work ***** -->
-
-    <section class="work" id="work">
-      <div class="row">
-        <h2>My Work</h2>
-        <div class="work__boxes">
-
-          <!-- Each div with the work__box class is a project. -->
-
-          <div class="work__box">
-            <div class="work__text">
-              <h3>Portfolio Template</h3>
-              <p>
-                A free Open Source Portfolio for anyone to use for free.
-              </p>
-              <ul class="work__list">
-                <li>HTML</li>
-                <li>SCSS</li>
-                <li>JavaScript</li>
-                <li>Parcel</li>
-              </ul>
-
-              <div class="work__links">
-                <a href="https://nisar.surge.sh" target="_blank" class="link__text">
-                  Visit Site <span>&rarr;</span>
-                </a>
-                <a href="https://github.com/nisarhassan12/portfolio" title="View Source Code" target="_blank">
-                  <img src="./images/github.svg" class="work__code" alt="GitHub">
-                </a>
-              </div>
-            </div>
-            <div class="work__image-box">
-              <img src="./images/project-1.png" class="work__image" alt="Project 1" />
-            </div>
-          </div>
-
-          <div class="work__box">
-            <div class="work__text">
-              <h3>Calculator</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,
-                eius.
-              </p>
-              <ul class="work__list">
-                <li>React</li>
-                <li>Next.js</li>
-                <li>Node</li>
-                <li>MongoDB</li>
-              </ul>
-
-              <div class="work__links">
-                <a href="#" class="link__text">
-                  Visit Site <span>&rarr;</span>
-                </a>
-                <a href="#">
-                  <img src="./images/github.svg" class="work__code" title="View Source Code" alt="GitHub">
-                </a>
-              </div>
-            </div>
-            <div class="work__image-box">
-              <img src="./images/project-2.png" class="work__image" alt="Project 1" />
-            </div>
-          </div>
-
-          <div class="work__box">
-            <div class="work__text">
-              <h3>Notificator</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,
-                eius.
-              </p>
-              <ul class="work__list">
-                <li>React</li>
-                <li>Next.js</li>
-                <li>Node</li>
-                <li>MongoDB</li>
-              </ul>
-
-              <div class="work__links">
-                <a href="#" class="link__text">
-                  Visit Site <span>&rarr;</span>
-                </a>
-                <a href="#">
-                  <img src="./images/github.svg" class="work__code" title="View Source Code" alt="GitHub">
-                </a>
-              </div>
-            </div>
-            <div class="work__image-box">
-              <img src="./images/project-3.png" class="work__image" alt="Project 3" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ***** Clients ***** -->
-
-    <section class="client" id="clients">
-      <div class="row">
-        <h2>Clients</h2>
-        <div class="client__logos">
-          <!-- Add logos of the clients or companies you'have worked with. -->
-          <img src="./images/ronjones.png" class="client__logo" alt="Company 2" />
-          <img src="./images/goldengrid.png" class="client__logo" alt="Company 3" />
-          <img src="./images/bullseye.png" class="client__logo" alt="Company 1" />
-          <img src="./images/mighty-furnitures.png" class="client__logo" alt="Company 1" />
-          <img src="./images/fastlane.png" class="client__logo" alt="Company 3" />
-          <img src="./images/chippy.png" class="client__logo" alt="Company 1" />
-        </div>
-      </div>
-    </section>
-
-    <!-- ***** About ***** -->
-
-    <section class="about" id="about">
-      <div class="row">
-        <h2>About Me</h2>
-        <div class="about__content">
-          <div class="about__text">
-            <!-- Replace the below paragraph with info about yourself -->
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos id
-              nostrum illo harum blanditiis, tenetur eum suscipit cupiditate
-              in vel, ex quam quidem quos mollitia labore aut sunt eius
-              ratione molestiae fuga veniam facere similique voluptate.
-            </p>
-            <!-- Provide a link to your resume -->
-            <a href="#" class="btn">My Resume</a>
-          </div>
-
-          <div class="about__photo-container">
-            <!-- Add a nice photo of yourself -->
-            <img class="about__photo" src="./images/syed-ali-hussnain.jpg" alt="" />
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ***** Contact ***** -->
-
-  <section class="contact" id="contact">
-    <div class="row">
-      <h2>Get in Touch</h2>
-      <div class="contact__info">
-        <p>
-          Are you looking for a fast-performing and user-friendly website to
-          represent your product or business? or looking for any kind of
-          consultation? or want to ask questions? or have some advice for me
-          or just want to say "Hi 👋" in any case feel free to Let me know. I
-          will do my best to respond back. 😊 The quickest way to reach out to
-          me is via an email.
-        </p>
-        <!-- Replace the email with yours -->
-        <a href="mailto:you@example.com" class="btn">you@example.com</a>
+        <a href="#projects" class="btn-main">🎮 View Projects</a>
+        <a href="#contact" class="btn-secondary">📧 Contact</a>
       </div>
     </div>
   </section>
 
-  <!-- ***** Footer ***** -->
+ <!-- Hero -->
+  
+    <div class="stats">
+      <div class="stat"><h3>3+</h3><p>Years Experience</p></div>
+      <div class="stat"><h3>10+</h3><p>Shipped/Playable Projects</p></div>
+      <div class="stat"><h3>100+</h3><p>Levels Designed</p></div>
+    </div>
+ 
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Featured Projects</h2>
+    <div class="projects-grid">
 
-  <footer role="contentinfo" class="footer">
-    <div class="row">
-      <!-- Update the links to point to your accounts -->
-      <ul class="footer__social-links">
-        <li class="footer__social-link-item">
-          <a href="https://twitter.com/nisarhassan12/" title="Link to Twitter Profile">
-            <img src="./images/twitter.svg" class="footer__social-image" alt="Twitter">
-          </a>
-        </li>
-        <li class="footer__social-link-item">
-          <a href="https://github.com/nisarhassan12/" title="Link to Github Profile">
-            <img src="./images/github.svg" class="footer__social-image" alt="Github">
-          </a>
-        </li>
-        <li class="footer__social-link-item">
-          <a href="https://codepen.io/nisar_hassan" title="Link to Codepen Profile">
-            <img src="./images/codepen.svg" class="footer__social-image" alt="Codepen">
-          </a>
-        </li>
-        <li class="footer__social-link-item">
-          <a href=https://www.linkedin.com/in/nisar-hassan-naqvi-413466199/">
-            <img src="./images/linkedin.svg" title="Link to Linkedin Profile" class="footer__social-image" alt="Linkedin">
-          </a>
-        </li>
-      </ul>
+      <div class="project-card">
+        <div class="thumb"><img src="hexa-puxle.webp" alt="Preview" /></div>
+          <h3>Hexa Sort</h3>
+        <p>Number puzzle brain game with engaging sorting mechanics and smooth UI.</p>
+        <div class="btn-group">
+          <a class="btn-icon" href="https://play.google.com/store/apps/details?id=com.hexasort.number.puzzle.brain.games&pli=1" target="_blank">📱 Play Store</a>
+          <a class="btn-icon" href="https://youtube.com/shorts/IlIHceq9jIs?si=WNQ-SEw0w7HcqzDa" target="_blank">▶️ Video</a>
+        </div>
+        <div class="tags"><span>Unity</span><span>Puzzle</span></div>
+      </div>
 
-      <!-- If you give me some credit by keeping the below paragraph, will be huge for me 😊 Thanks. -->
-      <p>
-        &copy; 2020 - Template designed & developed by <a href="https://nisar.dev" class="link">Nisar</a>.
-      </p>
-      <div class="footer__github-buttons">
-        <iframe
-          src="https://ghbtns.com/github-btn.html?user=nisarhassan12&repo=portfolio-template&type=watch&count=true"
-          frameborder="0" scrolling="0" width="170" height="20" title="Watch Portfolio Template on GitHub">
-        </iframe>
+      <div class="project-card">
+        <div class="thumb"><img src="ball.gif" alt="Preview" /></div>
+              
+        <h3>Connect Balls - Hyper Casual</h3>
+        <p>Minimalist hyper casual ball-connecting puzzle game.</p>
+        <div class="btn-group">
+          <a class="btn-icon" href="https://play.google.com/store/apps/details?id=com.puzzle.color.eight.pool.balls.games" target="_blank">📱 Play Store</a>
+        </div>
+        <div class="tags"><span>Unity</span><span>Casual</span></div>
+      </div>
+
+      <div class="project-card">
+        <div class="thumb"><img src="100-lvls.webp" alt="Preview" /></div>
+        <h3>Car Simulation: 100+ Levels</h3>
+        <p>Modular architecture, difficulty curves, and tuned progression.</p>
+        <div class="btn-group">
+          <a class="btn-icon" href="https://play.google.com/store/apps/details?id=com.wisdomgames.car.parking.games.simulator" target="_blank">📱 Play Store</a>
+        </div>
+        <div class="tags"><span>Unity</span><span>Simulation</span><span>Level Design</span></div>
+      </div>
+
+      <div class="project-card">
+         <div class="thumb"><img src="bike.gif" alt="Preview" /></div>
+        <h3>High-Performance Bike Racer</h3>
+        <p>3D racing systems, physics, camera, UI/HUD, and profiling.</p>
+        <div class="btn-group">
+          <a class="btn-icon" href="https://apkcombo.com/ar/trails-bike-race-racing-games/com.epicgames.motobike.trafficracer.bikeracing.bikeracegames.free/" target="_blank">📱 Download</a>
+          <a class="btn-icon" href="https://youtu.be/O_pl-TAtxHU?si=qYwp-eQUMjDRCS0L" target="_blank">▶️ Video</a>
+        </div>
+        <div class="tags"><span>Unity</span><span>Racing</span><span>Optimization</span></div>
+      </div>
+
+      <div class="project-card">
+        <div class="thumb"><img src="bowling.gif" alt="Preview" /></div>
+        <h3>VR Bowling (Oculus Quest)</h3>
+        <p>Realistic physics, interactions & comfort-first VR UX.</p>
+        <div class="btn-group">
+          <a class="btn-icon" href="https://www.youtube.com/watch?v=TJuODlA7qDM" target="_blank">▶️ Video</a>
+        </div>
+        <div class="tags"><span>Unity</span><span>VR</span><span>Physics</span></div>
+      </div>
+
+      <div class="project-card">
+        <div class="thumb"><img src="Dialogues.png" alt="Preview" /></div>
+        
+        <h3>2D Educational RPG</h3>
+        <p>Cutscenes, quiz combat, PlayFab cloud saves & auth.</p>
+        <div class="btn-group">
+          <a class="btn-icon" href="https://amerchoudhury.itch.io/crescent-chronicles-prototype-v2" target="_blank">🎮 Itch</a>
+          <a class="btn-icon" href="https://youtu.be/kMPPdmt0_aY?si=may8bAqHB796IcKt" target="_blank">▶️ Video</a>
+        </div>
+        <div class="tags"><span>Unity</span><span>2D</span><span>PlayFab</span></div>
+      </div>
+
+      <div class="project-card">
+        <div class="thumb"><img src="kartrace.gif" alt="Preview" /></div>
+        <h3>Multiplayer Kart Prototype</h3>
+        <p>Networked gameplay, sync inputs, asset integration.</p>
+        <div class="btn-group">
+          <a class="btn-icon" href="https://youtu.be/SZ99QHJdv38?si=4ay4ji0fTq7XpxvZ" target="_blank">▶️ Demo</a>
+        </div>
+        <div class="tags"><span>Unity</span><span>Multiplayer</span><span>Prototype</span></div>
+      </div>
+
+      <div class="project-card">
+        <div class="thumb"><img src="ui.gif" alt="Preview" /></div>
+        
+        <h3>UI Animations Showcase</h3>
+        <p>Snappy UI transitions, menus, and polish animations.</p>
+        <div class="btn-group">
+          <a class="btn-icon" href="https://youtube.com/shorts/IlIHceq9jIs?si=igagIKQ3cfjmfpAu" target="_blank">▶️ Demo 1</a>
+          <a class="btn-icon" href="https://youtube.com/shorts/Ok6Qg8b8lWI?si=udm9tZ5qI823Yd5n" target="_blank">▶️ Demo 2</a>
+        </div>
+        <div class="tags"><span>Unity</span><span>UI/UX</span></div>
+      </div>
+
+      <div class="project-card">
+        <div class="thumb"><img src="carRace.gif" alt="Preview" /></div>
+        <h3>Car Racing Game</h3>
+        <p> Implemented using Simple Clean Architecture, communication with APIs. UI animations </p>
+        <div class="btn-group">
+			<a class="btn-icon" href="https://www.youtube.com/watch?v=F_0-IYiQqRI" target="_blank">▶️ Video</a>
+          
+        </div>
+        <div class="tags"><span>Unity</span><span>Racing</span></div>
+      </div>
+
+    </div>
+  </section>
+
+   <!-- Experience -->
+  <section id="experience">
+    <h2>Professional Experience</h2>
+    <div class="timeline">
+		 <div>
+        <h4>Game Developer — Algoryte, Rawalpindi</h4>
+        <p><em>Sep 2025 – Present</em></p>
+        <p>Work with backend APIs using a clean, modular architecture for improved scalability and maintainability; implement state machine architectures to manage complex application states and business logic.</p>
+      </div>
+      <div>
+        <h4>Sr. Game Developer — 9D Technologies, Rawalpindi</h4>
+        <p><em>Aug 2022 – Mar 2025</em></p>
+        <p>Built immersive 2D/3D titles (incl. high-performance bike racer), designed scalable systems, created 100+ car-sim levels, and led optimization sprints improving mobile performance by ~30%.</p>
+      </div>
+      <div>
+        <h4>Freelance Game Developer — Upwork</h4>
+        <p><em>Aug 2023 – Dec 2023</em></p>
+        <p>Designed and launched a 2D educational RPG with cinematic cutscenes and PlayFab cloud saves & auth; used Bitbucket and agile boards for delivery.</p>
+      </div>
+      <div>
+        <h4>Jr. Game Developer — Rapidev Games (NUST), Islamabad</h4>
+        <p><em>Mar 2022 – Jul 2022</em></p>
+        <p>Implemented multiplayer kart features with NFT asset integration; delivered VR Bowling for Oculus Quest; prototyped PC 3D Bowling with polished UI and input.</p>
       </div>
     </div>
+  </section>
+
+<!-- Skills -->
+  <section id="skills" class="container">
+    <h2 class="section-title"><i class="fa-solid fa-screwdriver-wrench"></i> Skills & Tools</h2>
+    <div class="skill-groups">
+      <div class="skill-card reveal">
+        <strong>Game Dev</strong>
+        <div class="tags">
+          <span >Unity 3D</span><span class="skill">C#</span><span class="skill">Gameplay Systems</span>
+          <span class="skill">AI/State</span><span class="skill">Physics</span><span class="skill">Cameras</span>
+          <span class="skill">UI/HUD</span><span class="skill">VFX Integration</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <strong>Optimization & QA</strong>
+       
+	<div class="tags">
+          <span>Profiling</span><span >Memory</span><span >Build Size</span>
+          <span >Bugfixing</span><span >Playtesting</span>
+	</div>
+     </div>
+
+      <div class="skill-card reveal">
+        <strong>Pipelines</strong>
+        	<div class="tags"><span>Git</span><span>Bitbucket</span>
+          <span>Agile/Scrum</span><span>Code Reviews</span></div>
+         
+ 
+       
+      </div>
+      <div class="skill-card reveal">
+        <strong>Assets & Platforms</strong>
+        <div class="tags">
+          <span class="skill">Blender</span>
+          <span class="skill">PC</span><span class="skill">Mobile</span><span class="skill">VR (Oculus)</span>
+          <span class="skill">PlayFab</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Education -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="timeline">
+      <div>
+        <h4>BS Software Engineering</h4>
+        <p>Fatima Jinnah Women University, Pakistan — <em>2017–2021</em></p>
+        <p>Capstone: 3D Tennis Game with real-time physics and gameplay mechanics in Unity.</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>If you’d like to collaborate or hire me for your next game, reach out below.</p>
+
+    <div class="cards">
+      <div class="contact-card">
+        <h3>📧 Email</h3>
+        <p><a id="emailLink" href="mailto:engr.hafsasheikh@gmail.com">engr.hafsasheikh@gmail.com</a></p>
+        <button onclick="copyEmail()">Copy Email</button>
+      </div>
+      <div class="contact-card">
+        <h3>💼 Upwork</h3>
+        <p><a class="btn-hire">Start Contract</a></p>
+<button onclick="window.open('https://www.upwork.com/freelancers/hafsas60', '_blank')">Hire Now</button>
+      
+      </div>
+      <div class="contact-card">
+        <h3>📋 Resume</h3>
+	<p><a class="btn-hire">Download Resume</a></p>
+<button onclick="window.location.href='https://drive.google.com/uc?export=download&id=16LEDys7TgvajJ_3S-zd0M67wDAE7YmSp';">Download</button>
+
+             </div>
+    </div>
+
+    <div class="contact-form">
+      <h3>Send a quick message</h3>
+      <div class="form-row">
+        <input id="nameInput" type="text" placeholder="Your name"/>
+        <input id="subjectInput" type="text" placeholder="Subject"/>
+      </div>
+      <textarea id="messageInput" placeholder="Your message"></textarea>
+      <div style="margin-top:12px;">
+        <button onclick="sendMail()">Send</button>
+      </div>
+      <p style="margin-top:10px; font-size:13px; color:#8b949e;">This uses <code>mailto:</code> to open your email client.</p>
+    </div>
+  </section>
+
+  
+
+  <script>
+    function copyEmail(){
+      const email = "engr.hafsasheikh@gmail.com";
+      navigator.clipboard.writeText(email).then(()=>{
+        alert("Email copied: " + email);
+      });
+    }
+   
+function sendMail() {
+  const name = encodeURIComponent(document.getElementById('nameInput').value || '');
+  const subject = encodeURIComponent(document.getElementById('subjectInput').value || 'Project Inquiry');
+  const body = encodeURIComponent(
+    (document.getElementById('messageInput').value || '') +
+    (name ? `\n\n— ${name}` : '')
+  );
+
+  const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=engr.hafsasheikh@gmail.com&su=${subject}&body=${body}`;
+  window.open(gmailLink, '_blank'); // opens in new tab
+}
+
+  </script>
+<footer>
+    <p>© 2025 Hafsa Sheikh — Built with ❤️</p>
   </footer>
-
-  <a href="#top" class="back-to-top" title="Back to Top">
-    <img src="./images/arrow-up.svg" alt="Back to Top" class="back-to-top__image"/>
-  </a>
-  <script src="./index.js"></script>
 </body>
-
 </html>
