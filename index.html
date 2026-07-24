@@ -1,619 +1,502 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Faizan Ahmed | Game Developer | Unity | Unreal Engine</title>
-  <style>
-    /* Reset */
-    *{margin:0; padding:0; box-sizing:border-box;}
-    body{font-family:Arial, sans-serif; line-height:1.6; background:#0d1117; color:#e6edf3;}
-    a{text-decoration:none; color:inherit;}
-    img,iframe{max-width:100%; border-radius:10px;}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Faizan Ahmed — Senior Unity Developer | Unity &amp; Unreal Engine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
 
-    /* Navbar */
-    nav{
-      position:sticky; top:0; z-index:1000;
-      display:flex; justify-content:space-between; align-items:center;
-      padding:12px 20px; background:#161b22; color:#fff;
-      border-bottom:1px solid #30363d;
-      backdrop-filter:saturate(120%) blur(6px);
-    }
-    nav .left a{font-size:20px; font-weight:bold; color:#00ffae;}
-    nav .right a{
-      margin-left:15px; padding:8px 14px; border-radius:6px;
-      font-size:14px; transition:0.3s;
-    }
-    nav .btn-hire{background:#00ffae; color:#111;}
-    nav .btn-hire:hover{background:#00cc88;}
-    nav .btn-resume{background:#30363d; color:#fff;}
-    nav .btn-resume:hover{background:#444;}
+  :root{
+    --bg:#0e1117;
+    --bg-panel:#151a23;
+    --bg-panel-alt:#1a2029;
+    --bg-raised:#1f2632;
+    --line:#2a3140;
+    --line-soft:#20262f;
+    --text:#e9edf5;
+    --text-dim:#8b93a7;
+    --text-faint:#5b6274;
+    --amber:#ffb454;      /* Unity tag */
+    --blue:#7c9bff;       /* Unreal tag */
+    --teal:#57e6c1;       /* utility / design tag */
+    --red:#ff6b6b;        /* status dot */
+    --radius:10px;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'JetBrains Mono', monospace;
+  }
 
-    /* Sections */
-    section{padding:60px 20px; max-width:1100px; margin:auto;}
-    h1,h2,h3{margin-bottom:20px; font-weight:bold;}
-    h1{font-size:42px;}
-    h2{font-size:28px; color:#00ffae;}
-    h3{color:#00ffae;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--font-body);
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    background-image:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(255,180,84,0.06), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 90% 10%, rgba(124,155,255,0.05), transparent 60%);
+  }
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  ::selection{background:var(--amber);color:#171308;}
 
-    /* Hero */
-  /*  #hero{text-align:center; padding:100px 20px;}
-    #hero p{max-width:700px; margin:auto; font-size:18px; color:#c9d1d9;}*/
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
 
-    .stats{display:flex; justify-content:center; gap:30px; margin-top:30px; flex-wrap:wrap;}
-    .stat{background:#161b22; padding:20px 30px; border-radius:10px; text-align:center; min-width:150px; border:1px solid #30363d;}
-    .stat h3{font-size:24px; margin-bottom:5px; color:#00ffae;}
-/* Hero Card */
-.hero-card {
-  background:#161b22;
-  border:1px solid #30363d;
-  border-radius:16px;
-  padding:40px;
-  max-width:900px;
-  margin:auto;
-  box-shadow:0 0 25px rgba(0,0,0,0.5);
-  text-align:left;
-}
-.hero-tags {
-  font-size:14px;
-  color:#00ffae;
-  letter-spacing:1px;
-  margin-bottom:14px;
-}
-.hero-card h1 {
-  font-size:32px;
-  line-height:1.3;
-  margin-bottom:20px;
-}
-.hero-card .highlight {  border-bottom:2px solid #00ffae;}
-.hero-desc {
-  font-size:16px;
-  color:#c9d1d9;
-  margin-bottom:20px;
-}
-.hero-skills {  display:flex; flex-wrap:wrap; gap:10px; margin-bottom:25px;}
-.hero-skills span {
-  background:#21262d;
-  color:#e6edf3;
-  padding:6px 12px;
-  border-radius:20px;
-  font-size:13px;
-}
-.hero-cta a {
-  display:inline-block; margin-right:12px; padding:10px 18px;
-  border-radius:8px; font-weight:bold; font-size:14px;
-}
-.btn-main {
-  background:#00ffae; color:#111;
-}
-.btn-main:hover {
-  background:#00d294;
-}
-.btn-secondary {
-  background:#30363d; color:#e6edf3;
-}
-.btn-secondary:hover {
-  background:#444;
-}
+  /* ---------- Toolbar ---------- */
+  .toolbar{
+    position:sticky; top:0; z-index:1000;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 20px; height:56px;
+    background:rgba(14,17,23,0.85);
+    backdrop-filter:blur(10px) saturate(140%);
+    border-bottom:1px solid var(--line);
+  }
+  .toolbar-left{display:flex;align-items:center;gap:12px;}
+  .toolbar-logo{font-family:var(--font-display);font-weight:700;font-size:16px;letter-spacing:0.02em;}
+  .toolbar-role{
+    font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.06em;
+    color:var(--amber); background:rgba(255,180,84,0.1);
+    border:1px solid rgba(255,180,84,0.35); border-radius:4px;
+    padding:3px 8px; text-transform:uppercase;
+  }
+  .toolbar-menu{display:flex; gap:26px;}
+  .toolbar-menu a{
+    font-family:var(--font-mono); font-size:12.5px; color:var(--text-dim);
+    letter-spacing:0.02em; position:relative; padding:4px 2px; transition:color .2s;
+  }
+  .toolbar-menu a::after{
+    content:""; position:absolute; left:0; bottom:-2px; width:0; height:1px;
+    background:var(--amber); transition:width .25s;
+  }
+  .toolbar-menu a:hover{color:var(--text);}
+  .toolbar-menu a:hover::after{width:100%;}
+  .toolbar-status{display:flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;color:var(--text-dim);}
+  .dot-live{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 0 rgba(87,230,193,.6);animation:pulse 2.2s infinite;}
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(87,230,193,.55);}
+    70%{box-shadow:0 0 0 8px rgba(87,230,193,0);}
+    100%{box-shadow:0 0 0 0 rgba(87,230,193,0);}
+  }
+  @media (max-width:760px){ .toolbar-menu, .toolbar-status{display:none;} }
 
+  /* ---------- Layout ---------- */
+  section{padding:76px 24px; max-width:1120px; margin:0 auto;}
+  .section-head{margin-bottom:36px;}
+  .eyebrow{
+    font-family:var(--font-mono); font-size:11.5px; letter-spacing:0.14em;
+    color:var(--text-faint); text-transform:uppercase; display:flex; align-items:center; gap:10px; margin-bottom:10px;
+  }
+  .eyebrow::before{content:"//"; color:var(--amber);}
+  h2{font-family:var(--font-display); font-size:28px; font-weight:700; letter-spacing:-0.01em;}
 
+  /* ---------- Hero / Viewport ---------- */
+  #hero{padding:0; max-width:100%;}
+  .viewport{
+    position:relative; overflow:hidden;
+    padding:90px 24px 70px;
+    background:
+      linear-gradient(180deg, rgba(14,17,23,0) 0%, var(--bg) 92%),
+      repeating-linear-gradient(0deg, transparent 0 39px, rgba(124,155,255,0.06) 39px 40px),
+      repeating-linear-gradient(90deg, transparent 0 39px, rgba(124,155,255,0.06) 39px 40px),
+      var(--bg);
+    mask-image:linear-gradient(180deg,#000 75%, transparent 100%);
+    -webkit-mask-image:linear-gradient(180deg,#000 75%, transparent 100%);
+  }
+  .viewport-inner{max-width:1120px;margin:0 auto;position:relative;}
+  .viewport-hud{
+    display:flex; justify-content:space-between; align-items:center;
+    font-family:var(--font-mono); font-size:11px; color:var(--text-faint);
+    border-bottom:1px dashed var(--line); padding-bottom:14px; margin-bottom:46px;
+  }
+  .viewport-hud span b{color:var(--teal); font-weight:500;}
+  .gizmo{display:flex; align-items:center; gap:6px;}
+  .gizmo i{width:8px;height:8px;border-radius:2px;display:inline-block;}
+  .gizmo .x{background:var(--red);} .gizmo .y{background:var(--teal);} .gizmo .z{background:var(--blue);}
 
+  .hero-tag-row{
+    display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px;
+  }
+  .hero-tag-row span{
+    font-family:var(--font-mono); font-size:11px; letter-spacing:0.05em;
+    color:var(--text-dim); border:1px solid var(--line); border-radius:20px;
+    padding:5px 12px; background:var(--bg-panel);
+  }
+  .hero-tag-row span.role{color:var(--amber); border-color:rgba(255,180,84,0.4); background:rgba(255,180,84,0.08);}
 
+  .hero h1{
+    font-family:var(--font-display); font-weight:700;
+    font-size:clamp(30px, 5vw, 50px); line-height:1.15; letter-spacing:-0.015em;
+    max-width:880px; margin-bottom:22px;
+  }
+  .hero h1 .name{color:var(--amber);}
+  .hero h1 .accent-underline{
+    background:linear-gradient(180deg, transparent 68%, rgba(87,230,193,0.35) 68%);
+  }
+  .hero-desc{max-width:680px; color:var(--text-dim); font-size:16px; margin-bottom:28px;}
+  .hero-desc b{color:var(--text); font-weight:500;}
 
+  .hero-skills{display:flex; flex-wrap:wrap; gap:9px; margin-bottom:34px; max-width:760px;}
+  .hero-skills span{
+    font-family:var(--font-mono); font-size:12.5px; color:var(--text);
+    background:var(--bg-raised); border:1px solid var(--line);
+    padding:7px 13px; border-radius:6px;
+  }
 
-    /* Projects */
-    .projects-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; margin-top:20px;}
-    .project-card{
-      background:#161b22; padding:20px; border-radius:12px;
-      border:1px solid #30363d; transition:0.3s;
-    }
-    .project-card:hover{transform:translateY(-4px); border-color:#00ffae;}
-    .project-icon{font-size:32px; margin-bottom:10px;}
-    .project-card p{color:#c9d1d9;}
-    .tags{margin-top:10px;}
-    .tags span{
-      display:inline-block; margin:3px; padding:4px 10px;
-      background:#21262d; border-radius:20px; font-size:12px; color:#00ffae;
-    }
-    .btn-group{margin-top:12px;}
-    .btn-icon{
-      display:inline-block; margin:4px; padding:6px 12px; font-size:14px;
-      background:#21262d; color:#00ffae; border-radius:6px; transition:0.3s;
-    }
-    .btn-icon:hover{background:#00ffae; color:#111;}
- .thumb{
-      height:160px;background:
-        linear-gradient(120deg, rgba(122,162,255,.18), rgba(99,230,190,.18)),
-        linear-gradient(180deg, #12192a, #0f1420);
-      display:flex;align-items:center;justify-content:center;font-size:46px;color:#9db8ff;
-      border-bottom:1px solid var(--line)
-    }
-.thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* ensures the gif fills the frame without distortion */
-}
+  .hero-cta{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--font-mono); font-size:13px; font-weight:500;
+    padding:12px 20px; border-radius:7px; letter-spacing:0.02em;
+    transition:transform .15s ease, background .2s, border-color .2s;
+    border:1px solid transparent;
+  }
+  .btn:active{transform:scale(0.98);}
+  .btn-primary{background:var(--amber); color:#1a1204;}
+  .btn-primary:hover{background:#ffc677;}
+  .btn-outline{border-color:var(--line); color:var(--text);}
+  .btn-outline:hover{border-color:var(--text-dim); background:var(--bg-panel);}
 
-    /* Timeline */
-    .timeline{border-left:3px solid #00ffae; margin-left:15px; padding-left:20px;}
-    .timeline div{margin-bottom:25px;}
-    .timeline h4{margin-bottom:6px; color:#e6edf3;}
-    .timeline p{color:#c9d1d9;}
+  /* ---------- Projects ---------- */
+  .projects-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(310px,1fr));
+    gap:18px;
+  }
+  .card{
+    position:relative;
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    transition:border-color .2s, transform .2s;
+  }
+  .card:hover{border-color:var(--line-soft); transform:translateY(-3px);}
+  .card:hover .corner{opacity:1;}
+  .corner{
+    position:absolute; width:14px; height:14px; opacity:0; transition:opacity .2s;
+    border-color:var(--teal); pointer-events:none;
+  }
+  .corner.tl{top:8px; left:8px; border-top:2px solid; border-left:2px solid;}
+  .corner.br{bottom:8px; right:8px; border-bottom:2px solid; border-right:2px solid;}
 
-    /* Skills */
-    .skill-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    .skill-card{border:1px solid var(--line);border-radius:12px;background:#0f1420;padding:16px}
-    .skill-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-    .skill{padding:8px 10px;border-radius:999px;background:#0f1420;border:1px solid var(--line);font-size:13px}
+  .card-head{
+    display:flex; align-items:center; gap:9px;
+    padding:14px 16px; border-bottom:1px solid var(--line-soft);
+    background:var(--bg-panel-alt);
+  }
+  .engine-dot{width:8px;height:8px;border-radius:50%; flex-shrink:0;}
+  .engine-dot.unity{background:var(--amber); box-shadow:0 0 8px rgba(255,180,84,0.5);}
+  .engine-dot.unreal{background:var(--blue); box-shadow:0 0 8px rgba(124,155,255,0.5);}
+  .engine-dot.tool{background:var(--teal); box-shadow:0 0 8px rgba(87,230,193,0.5);}
+  .card-head h3{
+    font-family:var(--font-mono); font-size:13.5px; font-weight:600;
+    color:var(--text); letter-spacing:0.01em;
+  }
+  .card-body{padding:16px;}
+  .card-body p{color:var(--text-dim); font-size:14px; line-height:1.65;}
+  .tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:14px;}
+  .tags span{
+    font-family:var(--font-mono); font-size:10.5px; color:var(--text-faint);
+    border:1px solid var(--line); border-radius:4px; padding:3px 8px;
+  }
+  .btn-group{margin-top:14px; display:flex; gap:8px; flex-wrap:wrap;}
+  .btn-icon{
+    font-family:var(--font-mono); font-size:12px; font-weight:500;
+    padding:7px 12px; border-radius:6px; background:var(--bg-raised);
+    border:1px solid var(--line); color:var(--teal); transition:.2s;
+  }
+  .btn-icon:hover{background:var(--teal); color:#0b1611; border-color:var(--teal);}
 
+  /* ---------- Contact ---------- */
+  #contact .section-head p{color:var(--text-dim); max-width:520px;}
+  .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; margin-top:28px;}
+  .contact-card{
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:var(--radius);
+    padding:20px;
+  }
+  .contact-card h3{font-family:var(--font-mono); font-size:13px; color:var(--text-dim); font-weight:500; margin-bottom:10px; letter-spacing:0.03em;}
+  .contact-card a{color:var(--amber); font-size:14.5px; word-break:break-all;}
+  .contact-card button{
+    margin-top:14px; width:100%; padding:10px 12px; border-radius:6px; border:1px solid var(--line);
+    background:var(--bg-raised); color:var(--text); font-family:var(--font-mono); font-size:12.5px;
+    font-weight:500; cursor:pointer; transition:.2s;
+  }
+  .contact-card button:hover{background:var(--amber); color:#1a1204; border-color:var(--amber);}
 
-    /* Contact */
-    #contact .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; margin-top:12px;}
-    .contact-card{background:#161b22; border:1px solid #30363d; border-radius:12px; padding:16px;}
-    .contact-card a{color:#00ffae;}
-    .contact-form{margin-top:20px; background:#161b22; border:1px solid #30363d; border-radius:12px; padding:20px;}
-    .form-row{display:flex; gap:12px; flex-wrap:wrap;}
-    input, textarea, button{
-      width:100%; padding:10px 12px; border-radius:8px; border:1px solid #30363d; background:#0d1117; color:#e6edf3;
-    }
-    textarea{min-height:110px; resize:vertical;}
-    button{background:#00ffae; color:#111; font-weight:bold; cursor:pointer;}
-    button:hover{background:#00d294;}
-
-    footer{text-align:center; padding:22px; background:#161b22; color:#8b949e;}
-  </style>
+  footer{
+    text-align:center; padding:28px 20px; color:var(--text-faint);
+    font-family:var(--font-mono); font-size:11.5px; border-top:1px solid var(--line-soft);
+  }
+</style>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav>
-        <div class="left"><a href="#hero">Faizan Ahmed</a></div>
-        <div class="right">
-            <!--<a href="" target="_blank" class="btn-hire">Hire Me</a>-->
-            <!--<a href="" class="btn-resume">Download Resume</a>-->
-        </div>
-    </nav>
+<nav class="toolbar">
+  <div class="toolbar-left">
+    <a href="#hero" class="toolbar-logo">Faizan Ahmed</a>
+    <span class="toolbar-role">Senior Unity Developer</span>
+  </div>
+  <div class="toolbar-menu">
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="toolbar-status"><span class="dot-live"></span> Available for hire</div>
+</nav>
 
+<section id="hero">
+  <div class="viewport">
+    <div class="viewport-inner">
+      <div class="viewport-hud">
+        <span>SCENE: <b>portfolio.unity</b> &nbsp;|&nbsp; BUILD: <b>v5.0</b> &nbsp;|&nbsp; FPS: <b>60</b></span>
+        <span class="gizmo"><i class="x"></i><i class="y"></i><i class="z"></i></span>
+      </div>
 
+      <div class="hero-tag-row">
+        <span class="role">Senior Unity Developer</span>
+        <span>Unreal Engine</span>
+        <span>Game UI/UX Designer</span>
+      </div>
 
+      <h1>
+        I'm <span class="name">Faizan Ahmed</span> — I design and build games where solid mechanics, polished UI/UX, and optimized performance <span class="accent-underline">actually ship.</span>
+      </h1>
 
+      <p class="hero-desc">
+        With <b>4+ years</b> of hands-on experience, I've shipped Hyper-Casual, Mobile, and Web-Based games, integrating PlayFab, Firebase, Ads Mediation, IAPs, and custom APIs into scalable, production-ready systems.
+        <br><br>
+        I turn Figma UI/UX, game screens, and animations into smooth, responsive in-game experiences, and tune performance, frame rates, and memory to hold up across a wide spread of iOS and Android devices.
+      </p>
 
-    <!-- Hero -->
-    <section id="hero">
-        <div class="hero-card">
-            <p class="hero-tags">GAME DEVELOPER • UNITY & UNREAL ENGINE • GAME UI/UX DESIGNER</p>
-            <!--<h1>Hi, I’m <span class="highlight">Faizan Ahmed</span> — Unity & Unreal Engine expert with 4+ years of experience building Hyper-Casual, Mobile, and Web-Based games.</h1>-->
-            <h1>
-                I’m <span class="highlight">Faizan Ahmed</span> - Design and develop engaging games that combine solid mechanics, polished UI/UX implementation, optimized performance, and player-focused experiences.
-            </h1>
-            <p class="hero-desc">
-                With 4+ years of hands-on experience, I’ve developed Hyper-Casual, Mobile, and Web-Based games, integrating PlayFab, Firebase, Ads Mediation, IAPs, and custom APIs to deliver scalable, production-ready solutions.
-                <br><br> I excel at transforming UI/UX designs, game screens, and animations from Figma into smooth, responsive in-game experiences, and optimizing performance, frame rates, and memory management to ensure consistent gameplay across diverse iOS and Android devices.
-            </p>
+      <div class="hero-skills">
+        <span>Unity (C#)</span><span>Unreal (Blueprints &amp; C++)</span><span>Game UI/UX Design</span>
+        <span>Character Animation</span><span>Profiling &amp; Optimization</span><span>2D Rigging &amp; Animation</span>
+        <span>Version Control</span><span>Level Design</span><span>Blender</span>
+      </div>
 
-            <div class="hero-skills">
-                <span>Unity (C#)</span><span>Unreal (Blueprints and C++)</span><span>Game UI/UX Design</span>
-                <span>Character Animation</span><span>Profiling & Optimization</span><span>2D Rigging and Animation</span>
-                <span>Version Control</span><span>Level Design</span><span>Blender</span>
-            </div>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">▶ View Projects</a>
+        <a href="#contact" class="btn btn-outline">✉ Contact</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <div class="hero-cta">
-                <a href="#projects" class="btn-main">🎮 View Projects</a>
-                <a href="#contact" class="btn-secondary">📧 Contact</a>
-            </div>
-        </div>
-    </section>
+<section id="projects">
+  <div class="section-head">
+    <div class="eyebrow">Project Browser</div>
+    <h2>Featured Projects</h2>
+  </div>
 
-    <!-- Hero -->
-    <!--<div class="stats">-->
-    <!--<div class="stat"><h3>4+</h3><p>Years Experience</p></div>-->
-    <!--<div class="stat"><h3>10+</h3><p>Shipped/Playable Projects</p></div>-->
-    <!--<div class="stat"><h3>100+</h3><p>Levels Designed</p></div>-->
-    <!--</div>-->
-    <!-- Projects -->
-    <section id="projects">
-        <h2>Featured Projects</h2>
-        <div class="projects-grid">
-            
-            <div class="project-card">
-                <h3>Island Environment — Unity Terrain Showcase</h3>
-                 <p>
-                    Designed and built a complete stylized island environment from the ground up using Unity Terrain. Crafted the landscape through terrain sculpting, texture painting, vegetation placement, lighting, water, and environmental composition to create a visually cohesive and immersive world.
-                    <br><br>
-                    Focused on environmental storytelling, natural terrain flow, scene composition, and performance optimization to deliver a playable environment suitable for exploration and gameplay integration.                 
-                </p>
-                 <div class="btn-group">
-                    <a class="btn-icon" href="https://drive.google.com/file/d/1SLXmVhI3EzUvb8htyW5UwCtbjLVSmM_r/preview" target="_blank">▶️ Video</a>
-                 </div>
-                 <div class="tags"><span>Unity</span><span>Environment Design</span><span>Terrain Sculpting</span><span>Landscape Creation</span><span>Level Design</span><span>World Building</span></div>
-            </div>
-            
-            <div class="project-card">
-                <h3>Aerial War — Solo Indie Game Project</h3>
-                 <p>
-                    Aerial War is a fast-paced indie aerial combat game developed by me as a solo developer, featuring intense dogfights and immersive gameplay. 
-                    <br><br>
-                    The entire project from game mechanics to UI/UX design — was crafted by me, with AI-generated assets and interfaces designed in Figma.
-                 </p>
-                 <div class="btn-group">
-                    <a class="btn-icon" href="https://play.google.com/store/apps/details?id=com.riftscargames.aerialwar" target="_blank">📱 Play Store</a>
-                 </div>
-                 <div class="tags"><span>Unity</span><span>Aerial Combat</span><span>Indie Game</span><span>AI Assets</span><span>Figma UI/UX</span></div>
-            </div>
+  <div class="projects-grid">
 
-            <div class="project-card">
-                <!--<div class="thumb"><img src="ATA.webp" alt="Preview" /></div>-->
-                <h3>ATA - ACPlus Therapy App</h3>
-                <p>ACPlus Respiratory Therapy (ART) uses an FDA-cleared Bluetooth spirometer to convert pulmonary function test data into easy-to-understand, gamified biofeedback experiences that track performance against GLI predictions and seamlessly integrate back into the ACPlus platform.</p>
-                <div class="btn-group">
-                    <a class="btn-icon" href="https://apps.apple.com/us/app/ata/id1666902701" target="_blank">📱 App Store</a>
-                </div>
-                <div class="tags"><span>Unity</span><span>Respiratory Game</span><span>Biofeedback Therapy System</span><span>Health Focused</span></div>
-            </div>
+    <div class="card">
+      <div class="corner tl"></div><div class="corner br"></div>
+      <div class="card-head"><span class="engine-dot unity"></span><h3>Island Environment — Unity Terrain Showcase</h3></div>
+      <div class="card-body">
+        <p>Designed and built a complete stylized island environment from the ground up using Unity Terrain. Crafted the landscape through terrain sculpting, texture painting, vegetation placement, lighting, water, and environmental composition to create a visually cohesive and immersive world.<br><br>Focused on environmental storytelling, natural terrain flow, scene composition, and performance optimization to deliver a playable environment suitable for exploration and gameplay integration.</p>
+        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1SLXmVhI3EzUvb8htyW5UwCtbjLVSmM_r/preview" target="_blank">▶ Video</a></div>
+        <div class="tags"><span>Unity</span><span>Environment Design</span><span>Terrain Sculpting</span><span>Landscape Creation</span><span>Level Design</span><span>World Building</span></div>
+      </div>
+    </div>
 
-            <div class="project-card">
-                <!--<div class="thumb"><img src="ATA.webp" alt="Preview" /></div>-->
-                <h3>Shooting Game</h3>
-                <p>Fight for survival in an action-packed shooting game where every bullet counts.</p>
-                <div class="btn-group">
-                    <a class="btn-icon" href="https://play.google.com/store/apps/details?id=com.redcubez.commandosurvival" target="_blank">📱 Play Store</a>
-                </div>
-                <div class="tags"><span>Unity</span><span>Shooting</span><span>Survival</span><span>Action</span></div>
-            </div>
+    <div class="card">
+      <div class="corner tl"></div><div class="corner br"></div>
+      <div class="card-head"><span class="engine-dot unity"></span><h3>Aerial War — Solo Indie Game Project</h3></div>
+      <div class="card-body">
+        <p>Aerial War is a fast-paced indie aerial combat game developed by me as a solo developer, featuring intense dogfights and immersive gameplay.<br><br>The entire project — from game mechanics to UI/UX design — was crafted by me, with AI-generated assets and interfaces designed in Figma.</p>
+        <div class="btn-group"><a class="btn-icon" href="https://play.google.com/store/apps/details?id=com.riftscargames.aerialwar" target="_blank">📱 Play Store</a></div>
+        <div class="tags"><span>Unity</span><span>Aerial Combat</span><span>Indie Game</span><span>AI Assets</span><span>Figma UI/UX</span></div>
+      </div>
+    </div>
 
-            <div class="project-card">
-                <!--<div class="thumb"><img src="ATA.webp" alt="Preview" /></div>-->
-                <h3>Aerial War UI/UX Design</h3>
-                <p>Game UI/UX design focused on clear navigation, immersive visuals, and player-centric experience.</p>
-                <div class="btn-group">
-                    <a class="btn-icon" href="https://drive.google.com/file/d/1ZYLtjKDJN_igzm5Lqv7xpMIXKsRSb3En/preview" target="_blank">▶️ Video</a>
-                </div>
-                <div class="tags"><span>Game UI/UX Design</span><span>Game Design</span><span>Player Experience</span></div>
-            </div>
+    <div class="card">
+      <div class="corner tl"></div><div class="corner br"></div>
+      <div class="card-head"><span class="engine-dot unity"></span><h3>ATA — ACPlus Therapy App</h3></div>
+      <div class="card-body">
+        <p>ACPlus Respiratory Therapy (ART) uses an FDA-cleared Bluetooth spirometer to convert pulmonary function test data into easy-to-understand, gamified biofeedback experiences that track performance against GLI predictions and seamlessly integrate back into the ACPlus platform.</p>
+        <div class="btn-group"><a class="btn-icon" href="https://apps.apple.com/us/app/ata/id1666902701" target="_blank">📱 App Store</a></div>
+        <div class="tags"><span>Unity</span><span>Respiratory Game</span><span>Biofeedback Therapy System</span><span>Health Focused</span></div>
+      </div>
+    </div>
 
-            <div class="project-card">
-                <!--<div class="thumb"><img src="ATA.webp" alt="Preview" /></div>-->
-                <h3>Bike Racing Game</h3>
-                <p>Experience high-speed bike racing with thrilling tracks, sharp turns, and intense competition.</p>
-                <div class="btn-group">
-                    <a class="btn-icon" href="https://play.google.com/store/apps/details?id=com.redcubez.bikeracinggames" target="_blank">📱 Play Store</a>
-                </div>
-                <div class="tags"><span>Unity</span><span>Racing</span><span>Bike</span><span>Arcade</span></div>
-            </div>
+    <div class="card">
+      <div class="corner tl"></div><div class="corner br"></div>
+      <div class="card-head"><span class="engine-dot unity"></span><h3>Shooting Game</h3></div>
+      <div class="card-body">
+        <p>Fight for survival in an action-packed shooting game where every bullet counts.</p>
+        <div class="btn-group"><a class="btn-icon" href="https://play.google.com/store/apps/details?id=com.redcubez.commandosurvival" target="_blank">📱 Play Store</a></div>
+        <div class="tags"><span>Unity</span><span>Shooting</span><span>Survival</span><span>Action</span></div>
+      </div>
+    </div>
 
-            <div class="project-card">
-                <!--<div class="thumb"><img src="ATA.webp" alt="Preview" /></div>-->
-                <h3>Car Racing Game</h3>
-                <p>Race powerful cars, and dominate fast-paced racing tracks.</p>
-                <div class="btn-group">
-                    <a class="btn-icon" href="https://play.google.com/store/apps/details?id=com.redcubez.carracinggames" target="_blank">📱 Play Store</a>
-                </div>
-                <div class="tags"><span>Unity</span><span>Racing</span><span>Car</span><span>Arcade</span></div>
-            </div>
+    <div class="card">
+      <div class="corner tl"></div><div class="corner br"></div>
+      <div class="card-head"><span class="engine-dot tool"></span><h3>Aerial War UI/UX Design</h3></div>
+      <div class="card-body">
+        <p>Game UI/UX design focused on clear navigation, immersive visuals, and player-centric experience.</p>
+        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1ZYLtjKDJN_igzm5Lqv7xpMIXKsRSb3En/preview" target="_blank">▶ Video</a></div>
+        <div class="tags"><span>Game UI/UX Design</span><span>Game Design</span><span>Player Experience</span></div>
+      </div>
+    </div>
 
-            <div class="project-card">
-                <!--<div class="thumb"><img src="kartrace.gif" alt="Preview" /></div>-->
-                <h3>Monopoly Game Customization & Enhancements</h3>
-                <p>A client-driven project involving customization of a Monopoly-style game, including new gameplay mechanics, UI updates, animated interfaces, and bug fixes based on specific client requirements.</p>
-                <div class="btn-group">
-                    <a class="btn-icon" href="https://drive.google.com/file/d/1aRM_oBuYeCpkmF9ZH4ccFFv_0LQtTf34/preview" target="_blank">▶️ Video</a>
-                </div>
-                <div class="tags"><span>Unity</span><span>Monopoly</span><span>Game Customization & Enhancements</span></div>
-            </div>
+    <div class="card">
+      <div class="corner tl"></div><div class="corner br"></div>
+      <div class="card-head"><span class="engine-dot unity"></span><h3>Bike Racing Game</h3></div>
+      <div class="card-body">
+        <p>Experience high-speed bike racing with thrilling tracks, sharp turns, and intense competition.</p>
+        <div class="btn-group"><a class="btn-icon" href="https://play.google.com/store/apps/details?id=com.redcubez.bikeracinggames" target="_blank">📱 Play Store</a></div>
+        <div class="tags"><span>Unity</span><span>Racing</span><span>Bike</span><span>Arcade</span></div>
+      </div>
+    </div>
 
-            <div class="project-card">
-                <!--<div class="thumb"><img src="Firebase.png" alt="Preview" /></div>-->
-                <h3>Seamless Firebase Authentication</h3>
-                <p>Signup, Login, Password Reset and Player Data in One System.</p>
-                <div class="btn-group">
-                    <a class="btn-icon" href="https://drive.google.com/file/d/1D6Wb3t40P2qsxJ-Yt5nh-yzehhMSgCkU/preview" target="_blank">▶️ Video</a>
-                </div>
-                <div class="tags"><span>Unity</span><span>Firebase</span><span>Firestore Database</span></div>
-            </div>
+    <div class="card">
+      <div class="corner tl"></div><div class="corner br"></div>
+      <div class="card-head"><span class="engine-dot unity"></span><h3>Car Racing Game</h3></div>
+      <div class="card-body">
+        <p>Race powerful cars, and dominate fast-paced racing tracks.</p>
+        <div class="btn-group"><a class="btn-icon" href="https://play.google.com/store/apps/details?id=com.redcubez.carracinggames" target="_blank">📱 Play Store</a></div>
+        <div class="tags"><span>Unity</span><span>Racing</span><span>Car</span><span>Arcade</span></div>
+      </div>
+    </div>
 
-            <div class="project-card">
-                <!--<div class="thumb"><img src="bike.gif" alt="Preview" /></div>-->
-                <h3>Intelligent NPC Interaction Framework</h3>
-                <p>A Unity project enabling real-time player-to-NPC conversations using OpenAI, with Amazon Polly for natural text-to-speech. Each NPC is enriched with custom game lore, personality, and world data to deliver immersive and context-aware dialogue.</p>
-                <div class="btn-group">
-                    <a class="btn-icon" href="https://drive.google.com/file/d/1c68HI_EOa14Xn1fdeflBCjClyAW39lFx/preview" target="_blank">▶️ Video</a>
-                </div>
-                <div class="tags"><span>Unity</span><span>Open AI</span><span>NPC</span><span>Amazon Polly</span></div>
-            </div>
+    <div class="card">
+      <div class="corner tl"></div><div class="corner br"></div>
+      <div class="card-head"><span class="engine-dot unity"></span><h3>Monopoly Game Customization &amp; Enhancements</h3></div>
+      <div class="card-body">
+        <p>A client-driven project involving customization of a Monopoly-style game, including new gameplay mechanics, UI updates, animated interfaces, and bug fixes based on specific client requirements.</p>
+        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1aRM_oBuYeCpkmF9ZH4ccFFv_0LQtTf34/preview" target="_blank">▶ Video</a></div>
+        <div class="tags"><span>Unity</span><span>Monopoly</span><span>Game Customization &amp; Enhancements</span></div>
+      </div>
+    </div>
 
-            <div class="project-card">
-                <!--<div class="thumb"><img src="bowling.gif" alt="Preview" /></div>-->
-                <h3>2D Character Rigging & Animation</h3>
-                <p>A project focused on rigging 2D characters and producing high-quality animations through efficient skeletal animation techniques.</p>
-                <div class="btn-group">
-                    <a class="btn-icon" href="https://drive.google.com/file/d/1_l93Ke59KZA3oZH5TJNqoU8V2_e27K24/preview" target="_blank">▶️ Video</a>
-                </div>
-                <div class="tags"><span>Unity</span><span>2D Rigging</span><span>2D Animations</span></div>
-            </div>
+    <div class="card">
+      <div class="corner tl"></div><div class="corner br"></div>
+      <div class="card-head"><span class="engine-dot unity"></span><h3>Seamless Firebase Authentication</h3></div>
+      <div class="card-body">
+        <p>Signup, Login, Password Reset and Player Data in one system.</p>
+        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1D6Wb3t40P2qsxJ-Yt5nh-yzehhMSgCkU/preview" target="_blank">▶ Video</a></div>
+        <div class="tags"><span>Unity</span><span>Firebase</span><span>Firestore Database</span></div>
+      </div>
+    </div>
 
-            <div class="project-card">
-                <!--<div class="thumb"><img src="Dialogues.png" alt="Preview" /></div>-->
-                <h3>Fluid Simulation Shader</h3>
-                <p>A real-time liquid fluid shader created to simulate flowing, dynamic fluid motion using shader-based techniques.</p>
-                <div class="btn-group">
-                    <a class="btn-icon" href="https://drive.google.com/file/d/1Y8P-ws2wytTeSk9WSKLW8_Bx4Dgb5JST/preview" target="_blank">▶️ Video</a>
-                </div>
-                <div class="tags"><span>Unity</span><span>Fluid Simulation</span><span>Shader</span></div>
-            </div>
+    <div class="card">
+      <div class="corner tl"></div><div class="corner br"></div>
+      <div class="card-head"><span class="engine-dot unity"></span><h3>Intelligent NPC Interaction Framework</h3></div>
+      <div class="card-body">
+        <p>A Unity project enabling real-time player-to-NPC conversations using OpenAI, with Amazon Polly for natural text-to-speech. Each NPC is enriched with custom game lore, personality, and world data to deliver immersive and context-aware dialogue.</p>
+        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1c68HI_EOa14Xn1fdeflBCjClyAW39lFx/preview" target="_blank">▶ Video</a></div>
+        <div class="tags"><span>Unity</span><span>Open AI</span><span>NPC</span><span>Amazon Polly</span></div>
+      </div>
+    </div>
 
-            <div class="project-card">
-                <!--<div class="thumb"><img src="100-lvls.webp" alt="Preview" /></div>-->
-                <h3>AI Nexus for Unity</h3>
-                <p>A Unity application integrating OpenAI APIs to provide conversational AI with customizable roles, AI-generated images, real-time audio translation, and speech transcription for interactive experiences.</p>
-                <div class="btn-group">
-                    <a class="btn-icon" href="https://drive.google.com/file/d/1lvmTCgLbZh8G5yeR7YalCcJoNGgxBi-S/preview" target="_blank">▶️ Video</a>
-                </div>
-                <div class="tags"><span>Unity</span><span>Open AI</span></div>
-            </div>
+    <div class="card">
+      <div class="corner tl"></div><div class="corner br"></div>
+      <div class="card-head"><span class="engine-dot unity"></span><h3>2D Character Rigging &amp; Animation</h3></div>
+      <div class="card-body">
+        <p>A project focused on rigging 2D characters and producing high-quality animations through efficient skeletal animation techniques.</p>
+        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1_l93Ke59KZA3oZH5TJNqoU8V2_e27K24/preview" target="_blank">▶ Video</a></div>
+        <div class="tags"><span>Unity</span><span>2D Rigging</span><span>2D Animations</span></div>
+      </div>
+    </div>
 
-            <div class="project-card">
-                <!--<div class="thumb"><img src="carRace.gif" alt="Preview" /></div>-->
-                <h3>FPS Survival Shooter – Core Systems Simulation</h3>
-                <p>
-                    An advanced FPS gameplay and AI simulation focused on core mechanics, combat logic, and enemy intelligence rather than level design.<br><br>
-                    The project features a main menu with saved settings, advanced weapon systems (pickup, drop, slot management, multiple health types), map and compass systems, and detailed location-based damage for enemies (head, torso, lower body).<br><br>
-                    Enemy AI includes random roaming, intelligent chasing, and reactive combat behavior, responding dynamically to player actions and gunfire sounds.
-                </p>
-                <div class="btn-group">
-                    <a class="btn-icon" href="https://drive.google.com/file/d/1hjiZmqOP1dfu5xT_XvzA8r5GFUkCONNY/preview" target="_blank">▶️ Video</a>
-                </div>
-                <div class="tags"><span>Unreal</span><span>FPS Gameplay Systems</span><span>Enemy AI</span><span>Combat Mechanics</span></div>
-            </div>
+    <div class="card">
+      <div class="corner tl"></div><div class="corner br"></div>
+      <div class="card-head"><span class="engine-dot unity"></span><h3>Fluid Simulation Shader</h3></div>
+      <div class="card-body">
+        <p>A real-time liquid fluid shader created to simulate flowing, dynamic fluid motion using shader-based techniques.</p>
+        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1Y8P-ws2wytTeSk9WSKLW8_Bx4Dgb5JST/preview" target="_blank">▶ Video</a></div>
+        <div class="tags"><span>Unity</span><span>Fluid Simulation</span><span>Shader</span></div>
+      </div>
+    </div>
 
-            <div class="project-card">
-                <!--<div class="thumb"><img src="carRace.gif" alt="Preview" /></div>-->
-                <h3>Level Selection & Transition System</h3>
-                <p>Implemented an interactive level selection system where players select levels via an in-world UI, trigger cinematic transitions, and seamlessly load selected levels through gameplay events.</p>
-                <div class="btn-group">
-                    <a class="btn-icon" href="https://drive.google.com/file/d/1QQVaTg6feZv5WHeI3qreWYohcL35KFrk/preview" target="_blank">▶️ Video</a>
-                </div>
-                <div class="tags"><span>Unreal</span><span>UI & Interaction</span><span>Level Management</span></div>
-            </div>
+    <div class="card">
+      <div class="corner tl"></div><div class="corner br"></div>
+      <div class="card-head"><span class="engine-dot unity"></span><h3>AI Nexus for Unity</h3></div>
+      <div class="card-body">
+        <p>A Unity application integrating OpenAI APIs to provide conversational AI with customizable roles, AI-generated images, real-time audio translation, and speech transcription for interactive experiences.</p>
+        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1lvmTCgLbZh8G5yeR7YalCcJoNGgxBi-S/preview" target="_blank">▶ Video</a></div>
+        <div class="tags"><span>Unity</span><span>Open AI</span></div>
+      </div>
+    </div>
 
-            <div class="project-card">
-                <!--<div class="thumb"><img src="ui.gif" alt="Preview" /></div>-->
-                <h3>Mesh Merging System</h3>
-                <p>A project focused on merging multiple static meshes in Unreal Engine.</p>
-                <div class="btn-group">
-                    <a class="btn-icon" href="https://drive.google.com/file/d/1EkrTFI3f1fkDaZZ4Rybf3xVdv5JFeIrL/preview" target="_blank">▶️ Video</a>
-                </div>
-                <div class="tags"><span>Unreal</span></div>
-            </div>
+    <div class="card">
+      <div class="corner tl"></div><div class="corner br"></div>
+      <div class="card-head"><span class="engine-dot unreal"></span><h3>FPS Survival Shooter — Core Systems Simulation</h3></div>
+      <div class="card-body">
+        <p>An advanced FPS gameplay and AI simulation focused on core mechanics, combat logic, and enemy intelligence rather than level design.<br><br>The project features a main menu with saved settings, advanced weapon systems (pickup, drop, slot management, multiple health types), map and compass systems, and detailed location-based damage for enemies (head, torso, lower body).<br><br>Enemy AI includes random roaming, intelligent chasing, and reactive combat behavior, responding dynamically to player actions and gunfire sounds.</p>
+        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1hjiZmqOP1dfu5xT_XvzA8r5GFUkCONNY/preview" target="_blank">▶ Video</a></div>
+        <div class="tags"><span>Unreal</span><span>FPS Gameplay Systems</span><span>Enemy AI</span><span>Combat Mechanics</span></div>
+      </div>
+    </div>
 
-            <div class="project-card">
-                <!--<div class="thumb"><img src="carRace.gif" alt="Preview" /></div>-->
-                <h3>Grid</h3>
-                <p>A customizable grid system layout, allowing real-time editing and interaction for gameplay or level-design purposes.</p>
-                <div class="btn-group">
-                    <a class="btn-icon" href="https://drive.google.com/file/d/1fovaygiuqaCJMeeZnY8RumT1jTwXUsiT/preview" target="_blank">▶️ Video</a>
-                </div>
-                <div class="tags"><span>Unreal</span><span>Game Systems</span><span>Grid-Based Mechanics</span></div>
-            </div>
+    <div class="card">
+      <div class="corner tl"></div><div class="corner br"></div>
+      <div class="card-head"><span class="engine-dot unreal"></span><h3>Level Selection &amp; Transition System</h3></div>
+      <div class="card-body">
+        <p>Implemented an interactive level selection system where players select levels via an in-world UI, trigger cinematic transitions, and seamlessly load selected levels through gameplay events.</p>
+        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1QQVaTg6feZv5WHeI3qreWYohcL35KFrk/preview" target="_blank">▶ Video</a></div>
+        <div class="tags"><span>Unreal</span><span>UI &amp; Interaction</span><span>Level Management</span></div>
+      </div>
+    </div>
 
-        </div>
-    </section>
+    <div class="card">
+      <div class="corner tl"></div><div class="corner br"></div>
+      <div class="card-head"><span class="engine-dot unreal"></span><h3>Mesh Merging System</h3></div>
+      <div class="card-body">
+        <p>A project focused on merging multiple static meshes in Unreal Engine.</p>
+        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1EkrTFI3f1fkDaZZ4Rybf3xVdv5JFeIrL/preview" target="_blank">▶ Video</a></div>
+        <div class="tags"><span>Unreal</span></div>
+      </div>
+    </div>
 
-    <!-- Experience -->
-    <!--<section id="experience">
-        <h2>Professional Experience</h2>
-        <div class="timeline">
-            <div>
-                <h4>Unity Developer — All Star Technology, Karachi</h4>
-                <p><em>Jan 2023 – Present</em></p>
-                <p>
-                    1. Developed a Unity-based gamified breathing exercise application for iOS using a Bluetooth spirometer.<br>
-                    2. Integrated iOS API wrappers to simulate and visualize spirometer data in Unity.<br>
-                    3. Worked alongside iOS and backend developers to create a seamless biofeedback therapy experience.<br>
-                    4. Converted FDA-cleared respiratory metrics (FVC, FEV1, PEF, etc.) into in-game units for easy patient understanding.
-                </p>
-            </div>
-            <div>
-                <h4>Freelancer</h4>
-                <p><em>Jan 2021 – Present</em></p>
-                <p>
-                    1. Developed and optimized core gameplay mechanics, AI systems, and interactive environments across various game projects.<br>
-                    2. Implemented multiplayer features, UI/UX integrations, and performance optimizations for seamless player experiences.<br>
-                    3. Created and refined animations, character rigging, and procedural interactions to enhance game immersion.<br>
-                    4. Integrated third-party APIs, backend services, and authentication systems for cloud-based game data management.<br>
-                    5. Designed and implemented game UI/UX, including HUDs, menus, player flows, wireframes, and interactive prototypes, ensuring intuitive and visually engaging user experiences.
-                </p>
-            </div>
-            <div>
-                <h4>Unreal Engine Developer — WP Coders Pvt Ltd, Karachi</h4>
-                <p><em>Dec 2022 – Jun 2023</em></p>
-                <p>
-                    1. Developed core gameplay systems for a multiplayer FPS inspired by Hunt: Showdown in Unreal Engine.<br>
-                    2. Designed and implemented advanced enemy AI with roaming, sound detection, and dynamic attack behavior.<br>
-                    3. Built a complete gun system, including weapon pickups, ammo management, firing mechanics, and weapon switching.<br>
-                    4. Created an interactive player inventory system for managing weapons, consumables, and resources.<br>
-                    5. Designed and optimized game maps using modular assets for balanced gameplay and immersion.<br>
-                    6. Implemented a minimap and player HUD to display objectives, enemy locations, and player status.<br>
-                    7. Optimized performance by refining AI behavior, reducing draw calls, and implementing LODs for assets.<br>
-                    8. Developed core mechanics such as hit detection, health systems, environmental interactions, and AI synchronization.<br>
-                    9. Implemented dynamic weather and lighting effects to enhance immersion and gameplay variety.
-                </p>
-            </div>
-            <div>
-                <h4>Unity 3D Developer — Red Cubez Inc., Islamabad</h4>
-                <p><em>Feb 2022 – Jan 2023</em></p>
-                <p>
-                    1. Developed 2D and 3D hyper-casual games in Unity with smooth gameplay mechanics and strong player retention.<br>
-                    2. Implemented leaderboards, achievements, ads, and in-app purchases (IAP) for engagement and monetization.<br>
-                    3. Created and optimized character animations, AI-driven enemy behaviors, and NPC interactions.<br>
-                    4. Integrated pre-designed UI/UX into Unity while ensuring functionality and responsiveness.<br>
-                    5. Optimized game performance and conducted rigorous testing for high-quality releases.
-                </p>
-            </div>
-            <div>
-                <h4>Unreal Engine Developer — Umran Metaverse, Karachi</h4>
-                <p><em>Sep 2022 – Dec 2022</em></p>
-                <p>
-                    1. Worked as an Unreal Developer on Umran Metaverse, researching and implementing prototype functionalities for integration into the main project.<br>
-                    2. Developed and tested gameplay mechanics, optimizing world interactions, player movement, and immersive experiences.<br>
-                    3. Explored VR development features to enhance virtual interactions.<br>
-                    4. Collaborated with the main development team to refine and integrate key features for high-quality implementation.
-                </p>
-            </div>-->
-    <!--<div>
-        <h4>Family Business — Karachi</h4>
-        <p><em>Jan 2012 – Jan 2021</em></p>
-        <p>
-            1. Worked as an Unreal Developer on Umran Metaverse, researching and implementing prototype functionalities for integration into the main project.<br>
-            2. Developed and tested gameplay mechanics, optimizing world interactions, player movement, and immersive experiences.<br>
-            3. Explored VR development features to enhance virtual interactions.<br>
-            4. Collaborated with the main development team to refine and integrate key features for high-quality implementation.
-        </p>
-    </div>-->
-    <!--</div>
-    </section>-->
-    <!-- Skills -->
-    <!--<section id="skills" class="container">
-        <h2 class="section-title"><i class="fa-solid fa-screwdriver-wrench"></i> Skills & Tools</h2>
-        <div class="skill-groups">
-            <div class="skill-card reveal">-->
-    <!--<strong>Game Dev</strong>-->
-    <!--<div class="tags">
-                    <span>Unity 3D</span><span class="skill">C#</span><span class="skill">Gameplay Systems</span>
-                    <span class="skill">AI/State</span><span class="skill">Physics</span><span class="skill">Cameras</span>
-                    <span class="skill">UI/HUD</span><span class="skill">VFX Integration</span>
-                </div>
-            </div>
+    <div class="card">
+      <div class="corner tl"></div><div class="corner br"></div>
+      <div class="card-head"><span class="engine-dot unreal"></span><h3>Grid</h3></div>
+      <div class="card-body">
+        <p>A customizable grid system layout, allowing real-time editing and interaction for gameplay or level-design purposes.</p>
+        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1fovaygiuqaCJMeeZnY8RumT1jTwXUsiT/preview" target="_blank">▶ Video</a></div>
+        <div class="tags"><span>Unreal</span><span>Game Systems</span><span>Grid-Based Mechanics</span></div>
+      </div>
+    </div>
 
-            <div class="skill-card reveal">
-                <strong>Optimization & QA</strong>
+  </div>
+</section>
 
-                <div class="tags">
-                    <span>Profiling</span><span>Memory</span><span>Build Size</span>
-                    <span>Bugfixing</span><span>Playtesting</span>
-                </div>
-            </div>
+<section id="contact">
+  <div class="section-head">
+    <div class="eyebrow">Build Settings</div>
+    <h2>Contact</h2>
+    <p>If you'd like to collaborate or hire me for your next game, reach out below.</p>
+  </div>
 
-            <div class="skill-card reveal">
-                <strong>Pipelines</strong>
-                <div class="tags">
-                    <span>Git</span><span>Bitbucket</span>
-                    <span>Agile/Scrum</span><span>Code Reviews</span>
-                </div>
+  <div class="cards">
+    <div class="contact-card">
+      <h3>📧 EMAIL</h3>
+      <p><a id="emailLink" href="mailto:faizanahmed21@hotmail.com">faizanahmed21@hotmail.com</a></p>
+      <button onclick="copyEmail()">Copy Email</button>
+    </div>
+    <div class="contact-card">
+      <h3>📋 RESUME</h3>
+      <p><a>Download my latest resume</a></p>
+      <button onclick="window.location.href='https://drive.google.com/file/d/14GO1jk2TkBsJquOiF4jnZzeit-zA0n2b/view?usp=sharing';">Download</button>
+    </div>
+  </div>
+</section>
 
+<footer>© 2026 Faizan Ahmed — Senior Unity Developer</footer>
 
+<script>
+  function copyEmail() {
+    const email = "faizanahmed21@hotmail.com";
+    navigator.clipboard.writeText(email).then(() => {
+      alert("Email copied: " + email);
+    });
+  }
+</script>
 
-            </div>
-            <div class="skill-card reveal">
-                <strong>Assets & Platforms</strong>
-                <div class="tags">
-                    <span class="skill">Blender</span>
-                    <span class="skill">PC</span><span class="skill">Mobile</span><span class="skill">VR (Oculus)</span>
-                    <span class="skill">PlayFab</span>
-                </div>
-            </div>
-        </div>
-    </section>-->
-    <!-- Education -->
-    <!--<section id="education">
-        <h2>Education</h2>
-        <div class="timeline">
-            <div>
-                <h4>Bachelor of Engineering</h4>
-                <p>Usman Institute of Technology (Hamdard University), Karachi, Pakistan — <em>2007–2011</em></p>
-                <p>Capstone: 3D Tennis Game with real-time physics and gameplay mechanics in Unity.</p>
-            </div>
-        </div>
-    </section>-->
-    <!-- Trainings -->
-    <!--<section id="trainings">
-        <h2>Trainings</h2>
-        <div class="timeline">
-            <div>
-                <h4>Introduction to Unreal Engine</h4>
-                <p><em>RealityForge (Unreal Authorized Training Partner), Karachi, Pakistan — Jun 2022 – Aug 2022</em></p>
-                <p>Worked on Geometry brushes and creates environments, LODs optimization, Shaders, Blueprints, Cinematics, and more.</p>
-            </div>
-            <div>
-                <h4>Junior Unity Developer</h4>
-                <p><em>Game Train (Training with the collaboration of Generation Pakistan and Unity Technologies.), Lahore, Pakistan — Sep 2021 – Dec 2021</em></p>
-                <p>
-                    Worked on animations, implemented appropriate data types and object-oriented programming pillars, diagnosing and fixing error codes, UI design.<br>
-                    <br>
-                    Version control<br>
-                    Maintain a project by correctly implementing version control<br>
-                    Implement best practices of version control using Unity Collaborate<br>
-                    <br>
-                    Code optimization<br>
-                    Maximize code efficiency by correctly executing coding best practices<br>
-                    Debug performance issues
-                </p>
-            </div>
-        </div>
-    </section>-->
-    <!-- Contact -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>If you’d like to collaborate or hire me for your next game, reach out below.</p>
-
-        <div class="cards">
-            <div class="contact-card">
-                <h3>📧 Email</h3>
-                <p><a id="emailLink" href="mailto:faizanahmed21@hotmail.com">faizanahmed21@hotmail.com</a></p>
-                <button onclick="copyEmail()">Copy Email</button>
-            </div>
-            <!--<div class="contact-card">
-                <h3>💼 Upwork</h3>
-                <p><a class="btn-hire">Start Contract</a></p>
-                <button onclick="window.open('https://www.upwork.com/freelancers/hafsas60', '_blank')">Hire Now</button>
-
-            </div>-->
-            <div class="contact-card">
-                <h3>📋 Resume</h3>
-                <p><a class="btn-hire">Download Resume</a></p>
-                <button onclick="window.location.href='https://drive.google.com/file/d/14GO1jk2TkBsJquOiF4jnZzeit-zA0n2b/view?usp=sharing';">Download</button>
-
-            </div>
-        </div>
-
-        <!--<div class="contact-form">
-            <h3>Send a quick message</h3>
-            <div class="form-row">
-                <input id="nameInput" type="text" placeholder="Your name" />
-                <input id="subjectInput" type="text" placeholder="Subject" />
-            </div>
-            <textarea id="messageInput" placeholder="Your message"></textarea>
-            <div style="margin-top:12px;">
-                <button onclick="sendMail()">Send</button>
-            </div>
-            <p style="margin-top:10px; font-size:13px; color:#8b949e;">This uses <code>mailto:</code> to open your email client.</p>
-        </div>-->
-    </section>
-
-
-
-    <script>
-        function copyEmail() {
-            const email = "faizanahmed21@hotmail.com";
-            navigator.clipboard.writeText(email).then(() => {
-                alert("Email copied: " + email);
-            });
-        }
-
-        function sendMail() {
-            const name = encodeURIComponent(document.getElementById('nameInput').value || '');
-            const subject = encodeURIComponent(document.getElementById('subjectInput').value || 'Project Inquiry');
-            const body = encodeURIComponent(
-                (document.getElementById('messageInput').value || '') +
-                (name ? `\n\n— ${name}` : '')
-            );
-
-            const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=faizanahmed21@hotmail.com&su=${subject}&body=${body}`;
-            window.open(gmailLink, '_blank'); // opens in new tab
-        }
-
-    </script>
-    <!--<footer>
-        <p>© 2024 Faizan Ahmed.</p>
-    </footer>-->
 </body>
 </html>
