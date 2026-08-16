@@ -919,68 +919,6 @@
 
 /* ---------- Game portfolio compatibility with AI theme ---------- */
 
-.hero-tag-row{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-bottom:26px;
-}
-
-.hero-tag-row span{
-  font-family:var(--font-body);
-  font-weight:500;
-  font-size:13px;
-  color:var(--text-dim);
-  background:var(--bg-panel);
-  border:1px solid var(--line);
-  padding:7px 14px;
-  border-radius:100px;
-  box-shadow:var(--shadow);
-}
-
-.hero-tag-row span.role{
-  color:var(--indigo);
-  background:linear-gradient(120deg,var(--indigo-soft),var(--coral-tint));
-  border-color:rgba(109,91,208,0.25);
-}
-
-.viewport-hud{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-family:var(--font-mono);
-  font-size:11px;
-  color:var(--text-faint);
-  border-bottom:1px dashed var(--line);
-  padding-bottom:14px;
-  margin-bottom:42px;
-}
-
-.viewport-hud span b{
-  color:var(--mint);
-  font-weight:600;
-}
-
-.gizmo{
-  display:flex;
-  align-items:center;
-  gap:6px;
-}
-
-.gizmo i{
-  width:8px;
-  height:8px;
-  border-radius:2px;
-  display:inline-block;
-}
-
-.gizmo .x{background:var(--coral);}
-.gizmo .y{background:var(--mint);}
-.gizmo .z{background:var(--llm);}
-
-@media (max-width:760px){
-  .viewport-hud{display:none;}
-}
 
 .engine-dot.unity{
   background:var(--indigo);
@@ -1017,17 +955,9 @@
 <section id="hero">
   <div class="viewport">
     <div class="viewport-inner">
-      <div class="viewport-hud">
-        <span>SCENE: <b>portfolio.unity</b> &nbsp;|&nbsp; BUILD: <b>v5.0</b> &nbsp;|&nbsp; FPS: <b>60</b></span>
-        <span class="gizmo"><i class="x"></i><i class="y"></i><i class="z"></i></span>
-      </div>
+      
 
-      <div class="hero-tag-row">
-        <span class="role">Senior Unity Developer</span>
-        <span>Unreal Engine</span>
-        <span>Game UI/UX Designer</span>
-        <!-- <span class="role">AI Engineer</span> <span>Senior Unity Developer</span> <span>Unreal Engine</span> -->
-      </div>
+      
 
       <h1>
         I'm <span class="name">Faizan Ahmed</span> — I design and build games where solid mechanics, polished UI/UX, and optimized performance <span class="accent-underline">actually ship.</span>
