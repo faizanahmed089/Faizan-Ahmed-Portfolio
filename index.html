@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Faizan Ahmed — Senior Unity Developer | Unity &amp; Unreal Engine</title>
+<title>Faizan Ahmed — Game Developer & AI Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -525,14 +525,16 @@
     transition: all 0.3s ease;
   }
 
+  /* AI ZONE: Cyber Blue / Cyan Theme */
   .zone-ai {
-    background: linear-gradient(180deg, var(--llm-tint) 0%, transparent 100%);
+    background: linear-gradient(180deg, rgba(63,102,214,0.12) 0%, transparent 100%);
     border-left: 6px solid var(--llm);
     padding-left: 30px;
   }
 
+  /* GAME ZONE: Deep Purple / Indigo Theme */
   .zone-game {
-    background: linear-gradient(180deg, var(--indigo-soft) 0%, transparent 100%);
+    background: linear-gradient(180deg, rgba(109,91,208,0.12) 0%, transparent 100%);
     border-left: 6px solid var(--indigo);
     padding-left: 30px;
   }
@@ -573,10 +575,10 @@
     overflow:hidden;
     box-shadow:var(--shadow);
     transition: border-color .25s, transform .25s, box-shadow .25s;
-    border-top: 4px solid transparent; /* For color coding */
+    border-top: 4px solid transparent; 
   }
 
-  /* Card category colors */
+  /* Distinct top border colors per zone */
   .zone-ai .card { border-top-color: var(--llm); }
   .zone-game .card { border-top-color: var(--indigo); }
 
@@ -807,14 +809,15 @@
 <nav class="toolbar">
   <div class="toolbar-left">
     <a href="#hero" class="toolbar-logo">Faizan Ahmed</a>
-    <span class="toolbar-role">Senior Unity Developer</span>
+    <span class="toolbar-role">Game Developer & AI Engineer</span>
   </div>
   <div class="toolbar-menu">
-    <a href="#projects">Projects</a>
+    <a href="#ai-projects">AI Projects</a>
+    <a href="#game-projects">Game Projects</a>
     <a href="#capabilities">Capabilities</a>
     <a href="#contact">Contact</a>
   </div>
-  <div class="toolbar-status"><span class="dot-live"></span> Open to Opportunities</div>
+  <div class="toolbar-status"><span class="dot-live"></span> Open to Work</div>
 </nav>
 
 <section id="hero">
@@ -841,8 +844,8 @@
       </div>
       
       <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">▶ View Projects</a>
-        <a href="#contact" class="btn btn-outline">✉ Contact</a>
+        <a href="#ai-projects" class="btn btn-primary">▶ View AI Projects</a>
+        <a href="#game-projects" class="btn btn-outline">🎮 View Game Projects</a>
       </div>
     </div>
   </div>
@@ -855,7 +858,7 @@
   </div>
 
   <!-- AI ENGINEERING ZONE -->
-  <div class="project-zone zone-ai">
+  <div id="ai-projects" class="project-zone zone-ai">
     <div class="zone-header">
       <h3><span class="engine-dot ai"></span> AI Engineering</h3>
       <p>Designing intelligent agents, RAG systems, and LLM-powered automation to solve real-world business challenges.</p>
@@ -895,7 +898,7 @@
   </div>
 
   <!-- GAME DEVELOPMENT ZONE -->
-  <div class="project-zone zone-game">
+  <div id="game-projects" class="project-zone zone-game">
     <div class="zone-header">
       <h3><span class="engine-dot unity"></span> Game Development</h3>
       <p>Building immersive interactive experiences using Unity and Unreal Engine, focusing on gameplay mechanics and optimization.</p>
@@ -1158,12 +1161,12 @@
     <div class="contact-card">
       <h3>📋 RESUME</h3>
       <p>Download my latest resume</p>
-      <button onclick="window.location.href='https://drive.google.com/file/d/14GO1jk2TkBsJquOiF4jnZzeit-zA0n2b/view?usp=sharing';">Download</button>
+      <button onclick="window.location.href='https://drive.google.com/file/d/1BMsLM7bmh0ofgZ3KW8nk9weKKoWBK544/view?usp=sharing';">Download</button>
     </div>
   </div>
 </section>
 
-<footer>© 2026 Faizan Ahmed — Senior Unity Developer</footer>
+<footer>© 2026 Faizan Ahmed — Game Developer & AI Engineer</footer>
 
 <script>
   function copyEmail() {
