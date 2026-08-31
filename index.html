@@ -558,7 +558,8 @@
   .zone-header p {
     color: var(--text-dim);
     font-size: 16px;
-    max-width: 600px;
+    /* FIX: Changed max-width from 600px to 100% to prevent text wrapping on large screens */
+    max-width: 100%; 
   }
 
   .projects-grid{
