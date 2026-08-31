@@ -339,9 +339,6 @@
     margin:0 auto;
     position:relative;
 
-    /* Keep the hero headline, description, skills, and CTAs on one
-       consistent content axis and prevent the headline from becoming
-       wider than the supporting content. */
     max-width:1120px;
     margin-left:auto;
     margin-right:auto;
@@ -360,7 +357,6 @@
     line-height:1.75;
     letter-spacing:0;
 
-    /* Same width as the supporting hero content. */
     max-width:1120px;
 
     margin-bottom:24px;
@@ -429,7 +425,6 @@
     max-width:1120px;
   }
 
-  /* All hero content uses the same 850px alignment width. */
   .hero h1,
   .hero-desc,
   .hero-skills,
@@ -521,38 +516,69 @@
     color:var(--indigo);
   }
 
-  /* ---------- Projects ---------- */
+  /* ---------- Projects Redesign ---------- */
+
+  .project-zone {
+    padding: 60px 0;
+    border-radius: 24px;
+    margin-bottom: 40px;
+    transition: all 0.3s ease;
+  }
+
+  .zone-ai {
+    background: linear-gradient(180deg, var(--llm-tint) 0%, transparent 100%);
+    border-left: 6px solid var(--llm);
+    padding-left: 30px;
+  }
+
+  .zone-game {
+    background: linear-gradient(180deg, var(--indigo-soft) 0%, transparent 100%);
+    border-left: 6px solid var(--indigo);
+    padding-left: 30px;
+  }
+
+  .zone-header {
+    margin-bottom: 40px;
+  }
+
+  .zone-header h3 {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .zone-header p {
+    color: var(--text-dim);
+    font-size: 16px;
+    max-width: 600px;
+  }
 
   .projects-grid{
     display:grid;
-
-    grid-template-columns:
-      repeat(
-        auto-fit,
-        minmax(310px,1fr)
-      );
-
-    gap:20px;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap:24px;
   }
 
   .card{
     position:relative;
-
     background:var(--bg-panel);
-
     border:1px solid var(--line);
-
     border-radius:var(--radius);
-
     overflow:hidden;
-
     box-shadow:var(--shadow);
-
-    transition:
-      border-color .25s,
-      transform .25s,
-      box-shadow .25s;
+    transition: border-color .25s, transform .25s, box-shadow .25s;
+    border-top: 4px solid transparent; /* For color coding */
   }
+
+  /* Card category colors */
+  .zone-ai .card { border-top-color: var(--llm); }
+  .zone-game .card { border-top-color: var(--indigo); }
 
   .card:hover{
     border-color:var(--indigo);
@@ -560,84 +586,36 @@
     box-shadow:0 12px 32px rgba(109,91,208,0.16);
   }
 
-  .card:hover .corner{
-    opacity:1;
-  }
-
-  .corner{
-    display:none;
-  }
-
   .card-head{
     display:flex;
     flex-wrap:wrap;
     align-items:center;
     gap:8px 10px;
-
     padding:18px 20px;
-
     border-bottom:1px solid var(--line-soft);
-
     background:linear-gradient(135deg, var(--bg-panel-alt), var(--bg-panel));
   }
 
   .engine-dot{
     width:9px;
     height:9px;
-
     border-radius:50%;
-
     flex-shrink:0;
   }
 
-  .engine-dot.ai{
-    background:var(--llm);
-
-    box-shadow:
-      0 0 0 3px rgba(63,102,214,0.18);
-  }
-
-  .engine-dot.agent{
-    background:var(--mint);
-
-    box-shadow:
-      0 0 0 3px rgba(26,157,111,0.18);
-  }
-
-  .engine-dot.automation{
-    background:var(--coral);
-
-    box-shadow:
-      0 0 0 3px rgba(209,101,63,0.18);
-  }
-
-  .engine-label{
-    font-family:var(--font-mono);
-
-    font-size:10px;
-    font-weight:600;
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-
-    color:var(--text-faint);
-
-    margin-right:auto;
-  }
+  .engine-dot.ai{ background:var(--llm); box-shadow: 0 0 0 3px rgba(63,102,214,0.18); }
+  .engine-dot.unity{ background:var(--indigo); box-shadow: 0 0 0 3px rgba(109,91,208,0.18); }
+  .engine-dot.unreal{ background:var(--llm); box-shadow: 0 0 0 3px rgba(63,102,214,0.18); }
 
   .card-head h3{
     flex-basis:100%;
     width:100%;
     margin:0;
     padding:0;
-
     font-family:var(--font-display);
-
     font-size:15.5px;
-
     font-weight:700;
-
     color:var(--text);
-
     letter-spacing:-0.005em;
   }
 
@@ -645,75 +623,46 @@
     padding:20px;
   }
 
-  /* Keep description, tags, and buttons aligned with the card title. */
-  .card-body > p,
-  .card-body > .tags,
-  .card-body > .btn-group{
-    margin-left:0;
-    margin-right:0;
-  }
-
   .card-body p{
     color:var(--text-dim);
-
     font-size:14px;
-
     line-height:1.7;
   }
 
   .tags{
     display:flex;
     flex-wrap:wrap;
-
     gap:6px;
-
     margin-top:16px;
   }
 
   .tags span{
     font-family:var(--font-mono);
     font-weight:600;
-
     font-size:11px;
-
     color:var(--indigo);
-
     background:var(--indigo-soft);
-
     border:1px solid rgba(109,91,208,0.22);
-
     border-radius:20px;
-
     padding:4px 11px;
   }
 
   .btn-group{
     margin-top:16px;
-
     display:flex;
-
     gap:8px;
-
     flex-wrap:wrap;
   }
 
   .btn-icon{
     font-family:var(--font-body);
-
     font-size:12.5px;
-
     font-weight:600;
-
     padding:8px 14px;
-
     border-radius:100px;
-
     background:var(--mint-tint);
-
     border:1px solid rgba(26,157,111,0.3);
-
     color:var(--mint);
-
     transition:.2s;
   }
 
@@ -727,33 +676,19 @@
 
   .capabilities-grid{
     display:grid;
-
-    grid-template-columns:
-      repeat(
-        auto-fit,
-        minmax(240px,1fr)
-      );
-
+    grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
     gap:16px;
   }
 
   .capability{
     position:relative;
-
     background:var(--bg-panel);
-
     border:1px solid var(--line);
     border-top:2px solid transparent;
-
     border-radius:var(--radius);
-
     padding:22px;
-
     box-shadow:var(--shadow);
-
-    transition:
-      transform .2s,
-      border-color .2s;
+    transition: transform .2s, border-color .2s;
   }
 
   .capability::before{
@@ -763,46 +698,35 @@
     left:16px;
     right:16px;
     height:2px;
-
     border-radius:2px;
-
     background:linear-gradient(90deg, var(--indigo), var(--coral));
   }
 
   .capability:hover{
     transform:translateY(-4px);
-
     border-color:var(--indigo);
   }
 
   .capability-number{
     font-family:var(--font-mono);
-
     font-size:10.5px;
     font-weight:600;
     letter-spacing:0.04em;
-
     color:var(--indigo);
-
     margin-bottom:14px;
   }
 
   .capability h3{
     font-family:var(--font-display);
-
     font-size:17.5px;
     font-weight:700;
-
     margin-bottom:8px;
-
     color:var(--text);
   }
 
   .capability p{
     color:var(--text-dim);
-
     font-size:13.5px;
-
     line-height:1.65;
   }
 
@@ -810,130 +734,71 @@
 
   #contact .section-head p{
     color:var(--text-dim);
-
     max-width:520px;
   }
 
   .cards{
     display:grid;
-
-    grid-template-columns:
-      repeat(
-        auto-fit,
-        minmax(240px,1fr)
-      );
-
+    grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
     gap:16px;
-
     margin-top:32px;
   }
 
   .contact-card{
     background:var(--bg-panel);
-
     border:1px solid var(--line);
-
     border-radius:var(--radius);
-
     padding:22px;
-
     box-shadow:var(--shadow);
   }
 
   .contact-card h3{
     font-family:var(--font-mono);
-
     font-size:11.5px;
-
     color:var(--text-dim);
-
     font-weight:500;
-
     margin-bottom:12px;
-
     letter-spacing:0.06em;
-
     text-transform:uppercase;
   }
 
   .contact-card a{
     color:var(--indigo);
-
     font-size:14.5px;
     font-weight:500;
-
     word-break:break-all;
   }
 
   .contact-card button{
     margin-top:16px;
-
     width:100%;
-
     padding:11px 12px;
-
     border-radius:100px;
-
     border:1px solid var(--line);
-
     background:var(--bg-panel);
-
     color:var(--text);
-
     font-family:var(--font-body);
-
     font-size:13px;
-
     font-weight:600;
-
     cursor:pointer;
-
     transition:.2s;
   }
 
   .contact-card button:hover{
     background:linear-gradient(120deg, var(--indigo), var(--coral));
-
     color:#ffffff;
-
     border-color:transparent;
-
     box-shadow:0 4px 14px rgba(109,91,208,0.3);
   }
 
   footer{
     text-align:center;
-
     padding:32px 20px;
-
     color:var(--text-faint);
-
     font-family:var(--font-body);
-
     font-size:12px;
-
     border-top:1px solid var(--line);
   }
-
-
-
-/* ---------- Game portfolio compatibility with AI theme ---------- */
-
-
-.engine-dot.unity{
-  background:var(--indigo);
-  box-shadow:0 0 0 3px rgba(109,91,208,0.18);
-}
-
-.engine-dot.unreal{
-  background:var(--llm);
-  box-shadow:0 0 0 3px rgba(63,102,214,0.18);
-}
-
-.engine-dot.tool{
-  background:var(--mint);
-  box-shadow:0 0 0 3px rgba(26,157,111,0.18);
-}
 
 </style>
 </head>
@@ -942,7 +807,6 @@
 <nav class="toolbar">
   <div class="toolbar-left">
     <a href="#hero" class="toolbar-logo">Faizan Ahmed</a>
-    <!-- <span class="toolbar-role">Senior Unity Developer and AI Engineer</span> -->
     <span class="toolbar-role">Senior Unity Developer</span>
   </div>
   <div class="toolbar-menu">
@@ -956,10 +820,6 @@
 <section id="hero">
   <div class="viewport">
     <div class="viewport-inner">
-      
-
-      
-
     <h1>
       I'm <span class="name">Faizan Ahmed</span> — I build games and practical AI systems that turn ideas into polished, production-ready experiences.
     </h1>
@@ -979,8 +839,6 @@
         <span>LLM Applications</span><span>RAG Systems</span><span>AI Agents</span>
         <span>AI Workflow Automation</span><span>Prompt Engineering</span><span>API Integration</span>
       </div>
-
-      <!-- <h1> I'm <span class="name">Faizan Ahmed</span> — a Game Developer and AI Engineer building interactive experiences and intelligent systems where strong engineering, scalable architecture, and optimized performance <span class="accent-underline">actually ship.</span> </h1> <p class="hero-desc"> With <b>4+ years</b> of hands-on game development experience and professional experience building AI systems, I work across both <b>game development and AI engineering</b> — from Unity and Unreal gameplay systems to AI assistants, RAG agents, LLM-powered applications, and intelligent workflows. <br><br> My game development work spans <b>Unity, Unreal Engine, gameplay systems, mechanics, optimization, and interactive experiences</b>, while my AI engineering work includes <b>AI agents, RAG, LLMs, vector search, AI workflows, memory systems, and backend automation</b>. </p> <div class="hero-skills"> <span>AI Engineering</span><span>AI Agents &amp; RAG</span><span>LLMs &amp; OpenAI</span> <span>Unity (C#)</span><span>Unreal (Blueprints &amp; C++)</span><span>Gameplay Systems</span> <span>Python</span><span>Vector Search</span><span>Game Development</span> </div> -->
       
       <div class="hero-cta">
         <a href="#projects" class="btn btn-primary">▶ View Projects</a>
@@ -993,227 +851,212 @@
 <section id="projects">
   <div class="section-head">
     <div class="eyebrow">Project Browser</div>
-    <h2>Featured Projects</h2>
+    <h2>Portfolio Showcase</h2>
   </div>
 
-  <div class="projects-grid">
-
-    <div class="card"> 
-      <div class="corner tl"></div><div class="corner br">
-      </div> <div class="card-head"><span class="engine-dot unity"></span><h3>WhatsApp Customer Support Automation Agent</h3></div> 
-      <div class="card-body">
-        <p>Built a rule-based WhatsApp customer support automation system that guides customers through structured service workflows, complaint registration, and support options. The system manages conversation state, validates customer input, and collects product, issue, contact, and service-address information through WhatsApp.
-          <br><br>Implemented automated complaint registration, unique complaint IDs, Google Sheets data storage, technical-team email notifications, WhatsApp confirmations, input validation, menu navigation, error handling and more.</p>
-        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1nCgYvtM9bz1YGZxz3gHq1Cdr29aurIWs/preview" target="_blank">▶ Video</a></div> 
-        <div class="tags"><span>AI Engineering</span><span>WhatsApp AI Agent</span><span>Customer Support</span><span>Workflow Automation</span><span>Conversational AI</span><span>Agent Memory</span></div>
-      </div> 
+  <!-- AI ENGINEERING ZONE -->
+  <div class="project-zone zone-ai">
+    <div class="zone-header">
+      <h3><span class="engine-dot ai"></span> AI Engineering</h3>
+      <p>Designing intelligent agents, RAG systems, and LLM-powered automation to solve real-world business challenges.</p>
     </div>
 
-    <!-- <div class="card">
-      <div class="corner tl"></div><div class="corner br"></div>
-      <div class="card-head"><span class="engine-dot unity"></span><h3>Automated RAG Agent — HR Workflow & Action System</h3></div>
-      <div class="card-body">
-        <p>Built a fully automated RAG agent that understands user intent and decides whether to answer a question or execute an action. Policy questions use RAG, leave requests trigger workflows, HR contact requests send email, and status queries fetch data from the database.
-          <br><br>Implemented leave approvals, manager email workflows, HR record updates, salary-slip retrieval and delivery, complaint handling, Redis/Celery job queues, retries, logging, orchestration, and short- and long-term memory for personalized context.</p>
-        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1SLXmVhI3EzUvb8htyW5UwCtbjLVSmM_r/preview" target="_blank">▶ Video</a></div>
-        <div class="tags"><span>AI Engineering</span><span>RAG Agent</span><span>Workflow Automation</span><span>Agent Memory</span><span>Redis</span><span>Celery</span></div>
+    <div class="projects-grid">
+      <div class="card"> 
+        <div class="card-head"><span class="engine-dot ai"></span><h3>WhatsApp Customer Support Automation Agent</h3></div> 
+        <div class="card-body">
+          <p>Built a rule-based WhatsApp customer support automation system that guides customers through structured service workflows, complaint registration, and support options. The system manages conversation state and validates customer input.
+            <br><br>Implemented automated complaint registration, unique complaint IDs, Google Sheets data storage, and technical-team email notifications.</p>
+          <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1nCgYvtM9bz1YGZxz3gHq1Cdr29aurIWs/preview" target="_blank">▶ Video</a></div> 
+          <div class="tags"><span>AI Engineering</span><span>WhatsApp AI Agent</span><span>Workflow Automation</span><span>Conversational AI</span></div>
+        </div> 
       </div>
-    </div> -->
 
-    <div class="card">
-      <div class="corner tl"></div><div class="corner br"></div>
-      <div class="card-head"><span class="engine-dot unity"></span><h3>Employee RAG Agent — Secure HR Knowledge Assistant</h3></div>
-      <div class="card-body">
-        <p>Built a secure RAG agent that lets employees query company and HR information through natural language. The system retrieves relevant data from the knowledge base while enforcing employee-specific access, so users only see information they are authorized to access.
-          <!-- <br><br>The interface identifies the employee by name and ID and can answer questions about leave balance, tax details, and other HR information using retrieval-based responses.</p> -->
-           <br><br>(The displayed AI-generated responses and instant answers are simulated for demonstration purposes only.)</p>
-        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1SghhzTAsHP04Eafl0o0y-iT20fk4bK-e/preview" target="_blank">▶ Video</a></div>
-        <div class="tags"><span>AI Engineering</span><span>RAG</span><span>Employee Data</span><span>HR AI Agent</span><span>Vector Search</span><span>Access Control</span></div>
+      <div class="card">
+        <div class="card-head"><span class="engine-dot ai"></span><h3>Employee RAG Agent — Secure HR Assistant</h3></div>
+        <div class="card-body">
+          <p>Built a secure RAG agent that lets employees query company and HR information through natural language. The system retrieves relevant data from the knowledge base while enforcing employee-specific access.
+             <br><br>(The displayed AI-generated responses are simulated for demonstration purposes.)</p>
+          <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1SghhzTAsHP04Eafl0o0y-iT20fk4bK-e/preview" target="_blank">▶ Video</a></div>
+          <div class="tags"><span>AI Engineering</span><span>RAG</span><span>Employee Data</span><span>Vector Search</span><span>Access Control</span></div>
+        </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="corner tl"></div><div class="corner br"></div>
-      <div class="card-head"><span class="engine-dot unity"></span><h3>AI Chatbot Assistant — Intelligent Conversation System</h3></div>
-      <div class="card-body">
-        <p>Built a custom AI chatbot assistant designed for natural, context-aware conversations and practical task handling. The system connects users with an intelligent assistant that can understand requests, maintain conversation context, and provide relevant responses through a structured AI workflow.
-          <br><br>Focused on reliable interaction, clean response handling, and a scalable foundation suitable for business assistants, internal tools, and AI-powered applications. 
-          <br><br>(The displayed AI-generated responses and instant answers are simulated for demonstration purposes only.)</p>
-        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1pw-3ykKF1S3k4nMexzoxHyJEeRCHIdtV/preview" target="_blank">▶ Video</a></div>
-        <div class="tags"><span>AI Engineering</span><span>AI Chatbot</span><span>Conversational AI</span><span>OpenAI</span><span>AI Assistant</span><span>LLM</span></div>
+      <div class="card">
+        <div class="card-head"><span class="engine-dot ai"></span><h3>AI Chatbot Assistant — Intelligent System</h3></div>
+        <div class="card-body">
+          <p>Built a custom AI chatbot assistant designed for natural, context-aware conversations and practical task handling. The system connects users with an intelligent assistant that can understand requests and maintain context.
+            <br><br>Focused on reliable interaction and a scalable foundation suitable for business tools.</p>
+          <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1pw-3ykKF1S3k4nMexzoxHyJEeRCHIdtV/preview" target="_blank">▶ Video</a></div>
+          <div class="tags"><span>AI Engineering</span><span>AI Chatbot</span><span>Conversational AI</span><span>OpenAI</span><span>LLM</span></div>
+        </div>
       </div>
     </div>
+  </div>
 
-    <div class="card">
-      <div class="corner tl"></div><div class="corner br"></div>
-      <div class="card-head"><span class="engine-dot unity"></span><h3>Island Environment — Unity Terrain Showcase</h3></div>
-      <div class="card-body">
-        <p>Designed and built a complete stylized island environment from the ground up using Unity Terrain. Crafted the landscape through terrain sculpting, texture painting, vegetation placement, lighting, water, and environmental composition to create a visually cohesive and immersive world.<br><br>Focused on environmental storytelling, natural terrain flow, scene composition, and performance optimization to deliver a playable environment suitable for exploration and gameplay integration.</p>
-        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1SLXmVhI3EzUvb8htyW5UwCtbjLVSmM_r/preview" target="_blank">▶ Video</a></div>
-        <div class="tags"><span>Unity</span><span>Environment Design</span><span>Terrain Sculpting</span><span>Landscape Creation</span><span>Level Design</span><span>World Building</span></div>
-      </div>
+  <!-- GAME DEVELOPMENT ZONE -->
+  <div class="project-zone zone-game">
+    <div class="zone-header">
+      <h3><span class="engine-dot unity"></span> Game Development</h3>
+      <p>Building immersive interactive experiences using Unity and Unreal Engine, focusing on gameplay mechanics and optimization.</p>
     </div>
 
-    <div class="card">
-      <div class="corner tl"></div><div class="corner br"></div>
-      <div class="card-head"><span class="engine-dot unity"></span><h3>Aerial War — Solo Indie Game Project</h3></div>
-      <div class="card-body">
-        <p>Aerial War is a fast-paced indie aerial combat game developed by me as a solo developer, featuring intense dogfights and immersive gameplay.<br><br>The entire project — from game mechanics to UI/UX design — was crafted by me, with AI-generated assets and interfaces designed in Figma.</p>
-        <div class="btn-group"><a class="btn-icon" href="https://play.google.com/store/apps/details?id=com.riftscargames.aerialwar" target="_blank">📱 Play Store</a></div>
-        <div class="tags"><span>Unity</span><span>Aerial Combat</span><span>Indie Game</span><span>AI Assets</span><span>Figma UI/UX</span></div>
+    <div class="projects-grid">
+      <div class="card">
+        <div class="card-head"><span class="engine-dot unity"></span><h3>Island Environment — Unity Showcase</h3></div>
+        <div class="card-body">
+          <p>Designed and built a complete stylized island environment from the ground up using Unity Terrain. Crafted the landscape through terrain sculpting, texture painting, and lighting.
+          <br><br>Focused on environmental storytelling and performance optimization.</p>
+          <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1SLXmVhI3EzUvb8htyW5UwCtbjLVSmM_r/preview" target="_blank">▶ Video</a></div>
+          <div class="tags"><span>Unity</span><span>Environment Design</span><span>Terrain Sculpting</span><span>Level Design</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span class="engine-dot unity"></span><h3>Aerial War — Solo Indie Game</h3></div>
+        <div class="card-body">
+          <p>Aerial War is a fast-paced indie aerial combat game featuring intense dogfights. The entire project — from game mechanics to UI/UX design — was crafted by me.
+          <br><br>Integrated AI-generated assets and Figma-designed interfaces.</p>
+          <div class="btn-group"><a class="btn-icon" href="https://play.google.com/store/apps/details?id=com.riftscargames.aerialwar" target="_blank">📱 Play Store</a></div>
+          <div class="tags"><span>Unity</span><span>Aerial Combat</span><span>Indie Game</span><span>Figma UI/UX</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span class="engine-dot unity"></span><h3>ATA — ACPlus Therapy App</h3></div>
+        <div class="card-body">
+          <p>ACPlus Respiratory Therapy (ART) uses an FDA-cleared Bluetooth spirometer to convert pulmonary function test data into gamified biofeedback experiences.</p>
+          <div class="btn-group"><a class="btn-icon" href="https://apps.apple.com/us/app/ata/id1666902701" target="_blank">📱 App Store</a></div>
+          <div class="tags"><span>Unity</span><span>Respiratory Game</span><span>Biofeedback</span><span>Health Focused</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span class="engine-dot unity"></span><h3>Shooting Game</h3></div>
+        <div class="card-body">
+          <p>Fight for survival in an action-packed shooting game where every bullet counts.</p>
+          <div class="btn-group"><a class="btn-icon" href="https://play.google.com/store/apps/details?id=com.redcubez.commandosurvival" target="_blank">📱 Play Store</a></div>
+          <div class="tags"><span>Unity</span><span>Shooting</span><span>Survival</span><span>Action</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span class="engine-dot unity"></span><h3>Aerial War UI/UX Design</h3></div>
+        <div class="card-body">
+          <p>Game UI/UX design focused on clear navigation, immersive visuals, and player-centric experience.</p>
+          <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1ZYLtjKDJN_igzm5Lqv7xpMIXKsRSb3En/preview" target="_blank">▶ Video</a></div>
+          <div class="tags"><span>Game UI/UX Design</span><span>Game Design</span><span>Player Experience</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span class="engine-dot unity"></span><h3>Bike Racing Game</h3></div>
+        <div class="card-body">
+          <p>Experience high-speed bike racing with thrilling tracks, sharp turns, and intense competition.</p>
+          <div class="btn-group"><a class="btn-icon" href="https://play.google.com/store/apps/details?id=com.redcubez.bikeracinggames" target="_blank">📱 Play Store</a></div>
+          <div class="tags"><span>Unity</span><span>Racing</span><span>Bike</span><span>Arcade</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span class="engine-dot unity"></span><h3>Car Racing Game</h3></div>
+        <div class="card-body">
+          <p>Race powerful cars, and dominate fast-paced racing tracks.</p>
+          <div class="btn-group"><a class="btn-icon" href="https://play.google.com/store/apps/details?id=com.redcubez.carracinggames" target="_blank">📱 Play Store</a></div>
+          <div class="tags"><span>Unity</span><span>Racing</span><span>Car</span><span>Arcade</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span class="engine-dot unity"></span><h3>Monopoly Customization</h3></div>
+        <div class="card-body">
+          <p>A client-driven project involving customization of a Monopoly-style game, including new gameplay mechanics and UI updates.</p>
+          <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1aRM_oBuYeCpkmF9ZH4ccFFv_0LQtTf34/preview" target="_blank">▶ Video</a></div>
+          <div class="tags"><span>Unity</span><span>Monopoly</span><span>Customization</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span class="engine-dot unity"></span><h3>Seamless Firebase Auth</h3></div>
+        <div class="card-body">
+          <p>Signup, Login, Password Reset and Player Data in one system.</p>
+          <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1D6Wb3t40P2qsxJ-Yt5nh-yzehhMSgCkU/preview" target="_blank">▶ Video</a></div>
+          <div class="tags"><span>Unity</span><span>Firebase</span><span>Firestore</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span class="engine-dot unity"></span><h3>NPC Interaction Framework</h3></div>
+        <div class="card-body">
+          <p>A Unity project enabling real-time player-to-NPC conversations using OpenAI, with Amazon Polly for text-to-speech.</p>
+          <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1c68HI_EOa14Xn1fdeflBCjClyAW39lFx/preview" target="_blank">▶ Video</a></div>
+          <div class="tags"><span>Unity</span><span>Open AI</span><span>NPC</span><span>Amazon Polly</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span class="engine-dot unity"></span><h3>2D Character Rigging</h3></div>
+        <div class="card-body">
+          <p>A project focused on rigging 2D characters and producing high-quality animations.</p>
+          <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1_l93Ke59KZA3oZH5TJNqoU8V2_e27K24/preview" target="_blank">▶ Video</a></div>
+          <div class="tags"><span>Unity</span><span>2D Rigging</span><span>2D Animations</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span class="engine-dot unity"></span><h3>Fluid Simulation Shader</h3></div>
+        <div class="card-body">
+          <p>A real-time liquid fluid shader created to simulate flowing, dynamic fluid motion.</p>
+          <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1Y8P-ws2wytTeSk9WSKLW8_Bx4Dgb5JST/preview" target="_blank">▶ Video</a></div>
+          <div class="tags"><span>Unity</span><span>Fluid Simulation</span><span>Shader</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span class="engine-dot unity"></span><h3>AI Nexus for Unity</h3></div>
+        <div class="card-body">
+          <p>Integrating OpenAI APIs to provide conversational AI, AI-generated images, and real-time translation within Unity.</p>
+          <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1lvmTCgLbZh8G5yeR7YalCcJoNGgxBi-S/preview" target="_blank">▶ Video</a></div>
+          <div class="tags"><span>Unity</span><span>Open AI</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span class="engine-dot unreal"></span><h3>FPS Survival Shooter</h3></div>
+        <div class="card-body">
+          <p>Advanced FPS simulation focusing on core mechanics and enemy intelligence. Features advanced weapon systems and reactive AI behavior.</p>
+          <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1hjiZmqOP1dfu5xT_XvzA8r5GFUkCONNY/preview" target="_blank">▶ Video</a></div>
+          <div class="tags"><span>Unreal</span><span>FPS Systems</span><span>Enemy AI</span><span>Combat</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span class="engine-dot unreal"></span><h3>Level Transition System</h3></div>
+        <div class="card-body">
+          <p>Implemented an interactive level selection system with cinematic transitions and seamless loading events.</p>
+          <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1QQVaTg6feZv5WHeI3qreWYohcL35KFrk/preview" target="_blank">▶ Video</a></div>
+          <div class="tags"><span>Unreal</span><span>UI Interaction</span><span>Level Management</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span class="engine-dot unreal"></span><h3>Mesh Merging System</h3></div>
+        <div class="card-body">
+          <p>A project focused on merging multiple static meshes in Unreal Engine for optimization.</p>
+          <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1EkrTFI3f1fkDaZZ4Rybf3xVdv5JFeIrL/preview" target="_blank">▶ Video</a></div>
+          <div class="tags"><span>Unreal</span><span>Optimization</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span class="engine-dot unreal"></span><h3>Grid-Based System</h3></div>
+        <div class="card-body">
+          <p>A customizable grid system layout, allowing real-time editing and interaction for gameplay.</p>
+          <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1fovaygiuqaCJMeeZnY8RumT1jTwXUsiT/preview" target="_blank">▶ Video</a></div>
+          <div class="tags"><span>Unreal</span><span>Game Systems</span><span>Grid Mechanics</span></div>
+        </div>
       </div>
     </div>
-
-    <div class="card">
-      <div class="corner tl"></div><div class="corner br"></div>
-      <div class="card-head"><span class="engine-dot unity"></span><h3>ATA — ACPlus Therapy App</h3></div>
-      <div class="card-body">
-        <p>ACPlus Respiratory Therapy (ART) uses an FDA-cleared Bluetooth spirometer to convert pulmonary function test data into easy-to-understand, gamified biofeedback experiences that track performance against GLI predictions and seamlessly integrate back into the ACPlus platform.</p>
-        <div class="btn-group"><a class="btn-icon" href="https://apps.apple.com/us/app/ata/id1666902701" target="_blank">📱 App Store</a></div>
-        <div class="tags"><span>Unity</span><span>Respiratory Game</span><span>Biofeedback Therapy System</span><span>Health Focused</span></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="corner tl"></div><div class="corner br"></div>
-      <div class="card-head"><span class="engine-dot unity"></span><h3>Shooting Game</h3></div>
-      <div class="card-body">
-        <p>Fight for survival in an action-packed shooting game where every bullet counts.</p>
-        <div class="btn-group"><a class="btn-icon" href="https://play.google.com/store/apps/details?id=com.redcubez.commandosurvival" target="_blank">📱 Play Store</a></div>
-        <div class="tags"><span>Unity</span><span>Shooting</span><span>Survival</span><span>Action</span></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="corner tl"></div><div class="corner br"></div>
-      <div class="card-head"><span class="engine-dot unity"></span><h3>Aerial War UI/UX Design</h3></div>
-      <div class="card-body">
-        <p>Game UI/UX design focused on clear navigation, immersive visuals, and player-centric experience.</p>
-        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1ZYLtjKDJN_igzm5Lqv7xpMIXKsRSb3En/preview" target="_blank">▶ Video</a></div>
-        <div class="tags"><span>Game UI/UX Design</span><span>Game Design</span><span>Player Experience</span></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="corner tl"></div><div class="corner br"></div>
-      <div class="card-head"><span class="engine-dot unity"></span><h3>Bike Racing Game</h3></div>
-      <div class="card-body">
-        <p>Experience high-speed bike racing with thrilling tracks, sharp turns, and intense competition.</p>
-        <div class="btn-group"><a class="btn-icon" href="https://play.google.com/store/apps/details?id=com.redcubez.bikeracinggames" target="_blank">📱 Play Store</a></div>
-        <div class="tags"><span>Unity</span><span>Racing</span><span>Bike</span><span>Arcade</span></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="corner tl"></div><div class="corner br"></div>
-      <div class="card-head"><span class="engine-dot unity"></span><h3>Car Racing Game</h3></div>
-      <div class="card-body">
-        <p>Race powerful cars, and dominate fast-paced racing tracks.</p>
-        <div class="btn-group"><a class="btn-icon" href="https://play.google.com/store/apps/details?id=com.redcubez.carracinggames" target="_blank">📱 Play Store</a></div>
-        <div class="tags"><span>Unity</span><span>Racing</span><span>Car</span><span>Arcade</span></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="corner tl"></div><div class="corner br"></div>
-      <div class="card-head"><span class="engine-dot unity"></span><h3>Monopoly Game Customization &amp; Enhancements</h3></div>
-      <div class="card-body">
-        <p>A client-driven project involving customization of a Monopoly-style game, including new gameplay mechanics, UI updates, animated interfaces, and bug fixes based on specific client requirements.</p>
-        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1aRM_oBuYeCpkmF9ZH4ccFFv_0LQtTf34/preview" target="_blank">▶ Video</a></div>
-        <div class="tags"><span>Unity</span><span>Monopoly</span><span>Game Customization &amp; Enhancements</span></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="corner tl"></div><div class="corner br"></div>
-      <div class="card-head"><span class="engine-dot unity"></span><h3>Seamless Firebase Authentication</h3></div>
-      <div class="card-body">
-        <p>Signup, Login, Password Reset and Player Data in one system.</p>
-        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1D6Wb3t40P2qsxJ-Yt5nh-yzehhMSgCkU/preview" target="_blank">▶ Video</a></div>
-        <div class="tags"><span>Unity</span><span>Firebase</span><span>Firestore Database</span></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="corner tl"></div><div class="corner br"></div>
-      <div class="card-head"><span class="engine-dot unity"></span><h3>Intelligent NPC Interaction Framework</h3></div>
-      <div class="card-body">
-        <p>A Unity project enabling real-time player-to-NPC conversations using OpenAI, with Amazon Polly for natural text-to-speech. Each NPC is enriched with custom game lore, personality, and world data to deliver immersive and context-aware dialogue.</p>
-        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1c68HI_EOa14Xn1fdeflBCjClyAW39lFx/preview" target="_blank">▶ Video</a></div>
-        <div class="tags"><span>Unity</span><span>Open AI</span><span>NPC</span><span>Amazon Polly</span></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="corner tl"></div><div class="corner br"></div>
-      <div class="card-head"><span class="engine-dot unity"></span><h3>2D Character Rigging &amp; Animation</h3></div>
-      <div class="card-body">
-        <p>A project focused on rigging 2D characters and producing high-quality animations through efficient skeletal animation techniques.</p>
-        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1_l93Ke59KZA3oZH5TJNqoU8V2_e27K24/preview" target="_blank">▶ Video</a></div>
-        <div class="tags"><span>Unity</span><span>2D Rigging</span><span>2D Animations</span></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="corner tl"></div><div class="corner br"></div>
-      <div class="card-head"><span class="engine-dot unity"></span><h3>Fluid Simulation Shader</h3></div>
-      <div class="card-body">
-        <p>A real-time liquid fluid shader created to simulate flowing, dynamic fluid motion using shader-based techniques.</p>
-        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1Y8P-ws2wytTeSk9WSKLW8_Bx4Dgb5JST/preview" target="_blank">▶ Video</a></div>
-        <div class="tags"><span>Unity</span><span>Fluid Simulation</span><span>Shader</span></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="corner tl"></div><div class="corner br"></div>
-      <div class="card-head"><span class="engine-dot unity"></span><h3>AI Nexus for Unity</h3></div>
-      <div class="card-body">
-        <p>A Unity application integrating OpenAI APIs to provide conversational AI with customizable roles, AI-generated images, real-time audio translation, and speech transcription for interactive experiences.</p>
-        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1lvmTCgLbZh8G5yeR7YalCcJoNGgxBi-S/preview" target="_blank">▶ Video</a></div>
-        <div class="tags"><span>Unity</span><span>Open AI</span></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="corner tl"></div><div class="corner br"></div>
-      <div class="card-head"><span class="engine-dot unreal"></span><h3>FPS Survival Shooter — Core Systems Simulation</h3></div>
-      <div class="card-body">
-        <p>An advanced FPS gameplay and AI simulation focused on core mechanics, combat logic, and enemy intelligence rather than level design.<br><br>The project features a main menu with saved settings, advanced weapon systems (pickup, drop, slot management, multiple health types), map and compass systems, and detailed location-based damage for enemies (head, torso, lower body).<br><br>Enemy AI includes random roaming, intelligent chasing, and reactive combat behavior, responding dynamically to player actions and gunfire sounds.</p>
-        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1hjiZmqOP1dfu5xT_XvzA8r5GFUkCONNY/preview" target="_blank">▶ Video</a></div>
-        <div class="tags"><span>Unreal</span><span>FPS Gameplay Systems</span><span>Enemy AI</span><span>Combat Mechanics</span></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="corner tl"></div><div class="corner br"></div>
-      <div class="card-head"><span class="engine-dot unreal"></span><h3>Level Selection &amp; Transition System</h3></div>
-      <div class="card-body">
-        <p>Implemented an interactive level selection system where players select levels via an in-world UI, trigger cinematic transitions, and seamlessly load selected levels through gameplay events.</p>
-        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1QQVaTg6feZv5WHeI3qreWYohcL35KFrk/preview" target="_blank">▶ Video</a></div>
-        <div class="tags"><span>Unreal</span><span>UI &amp; Interaction</span><span>Level Management</span></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="corner tl"></div><div class="corner br"></div>
-      <div class="card-head"><span class="engine-dot unreal"></span><h3>Mesh Merging System</h3></div>
-      <div class="card-body">
-        <p>A project focused on merging multiple static meshes in Unreal Engine.</p>
-        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1EkrTFI3f1fkDaZZ4Rybf3xVdv5JFeIrL/preview" target="_blank">▶ Video</a></div>
-        <div class="tags"><span>Unreal</span></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="corner tl"></div><div class="corner br"></div>
-      <div class="card-head"><span class="engine-dot unreal"></span><h3>Grid</h3></div>
-      <div class="card-body">
-        <p>A customizable grid system layout, allowing real-time editing and interaction for gameplay or level-design purposes.</p>
-        <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1fovaygiuqaCJMeeZnY8RumT1jTwXUsiT/preview" target="_blank">▶ Video</a></div>
-        <div class="tags"><span>Unreal</span><span>Game Systems</span><span>Grid-Based Mechanics</span></div>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -1225,7 +1068,6 @@
   </div>
 
   <div class="capabilities-grid">
-
     <div class="capability">
       <div class="capability-number">01</div>
       <h3>Gameplay Systems</h3>
@@ -1297,7 +1139,6 @@
       <h3>Production & Integration</h3>
       <p>Taking features from implementation through integration, debugging, version control, platform deployment, and production-ready delivery.</p>
     </div>
-
   </div>
 </section>
 
@@ -1316,7 +1157,7 @@
     </div>
     <div class="contact-card">
       <h3>📋 RESUME</h3>
-      <p><a>Download my latest resume</a></p>
+      <p>Download my latest resume</p>
       <button onclick="window.location.href='https://drive.google.com/file/d/14GO1jk2TkBsJquOiF4jnZzeit-zA0n2b/view?usp=sharing';">Download</button>
     </div>
   </div>
