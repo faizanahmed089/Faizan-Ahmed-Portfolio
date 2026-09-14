@@ -866,56 +866,93 @@
     </div>
 
     <div class="projects-grid">
-      <div class="card">
-        <div class="card-head"><span class="engine-dot ai"></span><h3>Autonomous Factory Vision & QC Agent</h3></div>
+       <div class="card">
+        <div class="card-head"><span class="engine-dot ai"></span><h3>VisionQC: Industrial Computer Vision Auditor</h3></div>
         <div class="card-body">
-          <p>Developed an industrial vision system designed to monitor production lines for critical defects in real-time. The system utilizes a multimodal AI agent to analyze live camera feeds and compare physical evidence against industrial SOPs using RAG.
-      <br><br>The agent autonomously detects <b>burnt components, damaged circuitry, or foreign object debris (FOD)</b> to trigger emergency line stops, while seamlessly approving flawless PCBs to maintain production flow.
-      <br><br>Implemented a manual "Test Analysis" trigger for demonstration purposes to simulate real-time event detection and showcase the AI's autonomous decision-making and tool-calling pipeline.</p>
+          <p>Engineered a Computer Vision (CV) system for real-time defect detection on electronics production lines, replacing manual inspection with autonomous AI auditing.
+          <br><br>
+          • <b>CV-SOP Grounding:</b> Developed a multimodal pipeline that uses Computer Vision to analyze live camera feeds and compare physical evidence against industrial SOPs using RAG.
+          <br><br>
+          • <b>Autonomous Intervention:</b> Built a detection system for burnt components, damaged circuitry, or FOD, capable of triggering emergency line stops to prevent batch failure.
+          <br><br>
+          • <b>Tool-Calling Pipeline:</b> Implemented an autonomous tool-calling architecture to handle real-time event detection and seamless PCB approval for maximum production flow.
+          </p>
           <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1NJ3ifZXx0dVOGjXW3MjbmAf1Iw_AJKAe/preview" target="_blank">▶ Video</a></div>
-          <div class="tags"><span>AI Engineering</span><span>Industrial Vision</span><span>RAG</span><span>Tool Use</span><span>FastAPI</span><span>Supabase</span></div>
+          <div class="tags"><span>Computer Vision</span><span>Industrial AI</span><span>RAG</span><span>Tool Use</span><span>FastAPI</span><span>Supabase</span></div>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-head"><span class="engine-dot ai"></span><h3>AI Document Intelligence & Verification Agent</h3></div>
+        <div class="card-head"><span class="engine-dot ai"></span><h3>DocuVerify: Multimodal Compliance Engine</h3></div>
         <div class="card-body">
-          <p>Built a multimodal AI agent that analyzes documents and images against dynamic company policies using a RAG-based retrieval system. The agent evaluates inputs in real-time to determine compliance and validity.
-            <br><br>Implemented an automated decision workflow using AI Tool Calling to autonomously approve, reject, or flag documents, integrated with Supabase for secure storage and FastAPI background tasks for efficient asynchronous processing.</p>
+          <p>Built a high-precision verification system specialized in automated invoice intelligence and corporate document auditing against dynamic company policies.
+          <br><br>
+          • <b>Modular Rule-Set:</b> Engineered a flexible architecture using Supabase and RAG, allowing administrators to extend compliance rules and policy sets without changing the core code.
+          <br><br>
+          • <b>Bulk Processing Pipeline:</b> Developed the system to support bulk document uploads, integrated with a managerial approval/rejection workflow for final validation.
+          <br><br>
+          • <b>Automated Decisioning:</b> Implemented an AI Tool Calling pipeline to autonomously approve, reject, or flag invoices based on real-time compliance markers.
+          </p>
           <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1OsGfrllaEgqbETfk1yuvs4V_w-Vw7wv7/view" target="_blank">▶ Video</a></div>
-          <div class="tags"><span>AI Engineering</span><span>Multimodal AI</span><span>RAG</span><span>Tool Use</span><span>FastAPI</span><span>Supabase</span></div>
+          <div class="tags"><span>Multimodal AI</span><span>Invoice Intelligence</span><span>RAG</span><span>Tool Use</span><span>FastAPI</span><span>Supabase</span></div>
         </div>
       </div>
 
-      <div class="card"> 
-        <div class="card-head"><span class="engine-dot ai"></span><h3>WhatsApp Customer Support Automation Agent</h3></div> 
+      <div class="card">
+        <div class="card-head"><span class="engine-dot ai"></span><h3>WhatsApp OmniChannel Workflow Engine</h3></div>
         <div class="card-body">
-          <p>Built a rule-based WhatsApp customer support automation system that guides customers through structured service workflows, complaint registration, and support options. The system manages conversation state and validates customer input.
-            <br><br>Implemented automated complaint registration, unique complaint IDs, Google Sheets data storage, and technical-team email notifications.</p>
-          <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1nCgYvtM9bz1YGZxz3gHq1Cdr29aurIWs/preview" target="_blank">▶ Video</a></div> 
-          <div class="tags"><span>AI Engineering</span><span>WhatsApp AI Agent</span><span>Workflow Automation</span><span>Conversational AI</span></div>
-        </div> 
+          <p>Engineered a WhatsApp-driven automation system that guides customers through structured service workflows and automated complaint registration.
+          <br><br>
+          • <b>WhatsApp State Management:</b> Built a robust state-tracking system to manage multi-step user journeys, ensuring strict input validation and seamless workflow transitions.
+          <br><br>
+          • <b>Automated CRM Integration:</b> Developed a backend pipeline to automatically register complaints, generate unique tracking IDs, and sync data directly to Google Sheets.
+          <br><br>
+          • <b>Real-Time Alerts:</b> Implemented an event-driven notification system to immediately alert technical teams via email upon the registration of a critical complaint.
+          </p>
+          <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1nCgYvtM9bz1YGZxz3gHq1Cdr29aurIWs/preview" target="_blank">▶ Video</a></div>
+          <div class="tags"><span>WhatsApp API</span><span>Workflow Automation</span><span>Conversational AI</span><span>State Management</span></div>
+        </div>
       </div>
 
-      <div class="card">
-        <div class="card-head"><span class="engine-dot ai"></span><h3>Employee RAG Agent — Secure HR Assistant</h3></div>
+                  <div class="card">
+        <div class="card-head"><span class="engine-dot ai"></span><h3>Knowledge Orchestrator — Secure RAG Pipeline</h3></div>
         <div class="card-body">
-          <p>Built a secure RAG agent that lets employees query company and HR information through natural language. The system retrieves relevant data from the knowledge base while enforcing employee-specific access.
-             <br><br>(The displayed AI-generated responses are simulated for demonstration purposes.)</p>
+          <p>Built an RAG system that transforms static company policies into a secure, self-service intelligence portal.
+          <br><br>
+          • <b>Auto-Sync Pipeline:</b> Engineered a background engine that syncs Google Drive folders to Pinecone, featuring hybrid OCR (Tesseract) to index scanned PDFs and images.
+          <br><br>
+          • <b>Multi-Layer Cache:</b> Implemented a 3-tier pipeline (Postgres → Pinecone → LLM) to serve identical or paraphrased queries instantly, reducing API costs.
+          <br><br>
+          • <b>Precision Retrieval:</b> Developed a diversified ranking algorithm and strict grounding to ensure zero-hallucination answers with traceable citations.
+          <br><br>
+          • <b>Multimodal & Governance:</b> Integrated Groq Whisper for voice-to-text and a custom token-tracking quota system to prevent API abuse.
+          </p>
           <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1SghhzTAsHP04Eafl0o0y-iT20fk4bK-e/preview" target="_blank">▶ Video</a></div>
-          <div class="tags"><span>AI Engineering</span><span>RAG</span><span>Employee Data</span><span>Vector Search</span><span>Access Control</span></div>
+          <div class="tags"><span>AI Engineering</span><span>RAG</span><span>Pinecone</span><span>OCR</span><span>Google Drive API</span><span>PostgreSQL</span></div>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-head"><span class="engine-dot ai"></span><h3>AI Chatbot Assistant — Intelligent System</h3></div>
+
+
+                  <div class="card">
+        <div class="card-head"><span class="engine-dot ai"></span><h3>OmniCache AI Orchestrator</h3></div>
         <div class="card-body">
-          <p>Built a custom AI chatbot assistant designed for natural, context-aware conversations and practical task handling. The system connects users with an intelligent assistant that can understand requests and maintain context.
-            <br><br>Focused on reliable interaction and a scalable foundation suitable for business tools.</p>
+          <p>Built a cost-optimized AI orchestrator designed to reduce API latency and expenses using a multi-tier retrieval strategy.
+          <br><br>
+          • <b>Multi-Layer Cache:</b> Implemented a 3-tier pipeline (Postgres → Pinecone → LLM) to serve repeated or similar queries instantly without hitting the LLM.
+          <br><br>
+          • <b>Multimodal AI:</b> Integrated Groq Whisper for real-time speech-to-text and Vision LLMs for image analysis.
+          <br><br>
+          • <b>State Management:</b> Used PostgreSQL to manage persistent, multi-session conversation histories.
+          <br><br>
+          • <b>Resource Control:</b> Developed a custom token-tracking quota system and rate-limiting to prevent API abuse.
+          </p>
           <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1pw-3ykKF1S3k4nMexzoxHyJEeRCHIdtV/preview" target="_blank">▶ Video</a></div>
-          <div class="tags"><span>AI Engineering</span><span>AI Chatbot</span><span>Conversational AI</span><span>OpenAI</span><span>LLM</span></div>
+          <div class="tags"><span>FastAPI</span><span>Pinecone</span><span>PostgreSQL</span><span>Multimodal AI</span><span>Semantic Search</span><span>Groq</span></div>
         </div>
       </div>
+
+
     </div>
   </div>
 
