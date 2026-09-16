@@ -338,27 +338,17 @@
     max-width:1120px;
     margin:0 auto;
     position:relative;
-
-    max-width:1120px;
-    margin-left:auto;
-    margin-right:auto;
     text-align:left;
   }
 
   .hero h1{
-    text-align:center;
-
+    text-align:left;
     font-family:var(--font-body);
     font-weight:400;
     color:var(--text-dim);
-
-    font-size:clamp(16.5px, 1.9vw, 19px);
-
+    font-size:1.7rem;
     line-height:1.75;
     letter-spacing:0;
-
-    max-width:1120px;
-
     margin-bottom:24px;
   }
 
@@ -367,42 +357,17 @@
     font-weight:700;
     font-size:1.3em;
     letter-spacing:-0.01em;
-
     background:linear-gradient(120deg, var(--text) 15%, var(--indigo) 75%, var(--coral) 125%);
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
   }
 
-  .hero h1 .accent-underline{
-    position:relative;
-    font-weight:600;
-    color:var(--text);
-  }
-
-  .hero h1 .accent-underline::after{
-    content:"";
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:1px;
-
-    height:7px;
-    border-radius:2px;
-
-    background:linear-gradient(90deg, rgba(26,157,111,0.35), rgba(109,91,208,0.28));
-    z-index:-1;
-  }
-
   .hero-desc{
     text-align:left;
-    max-width:1120px;
-
     color:var(--text-dim);
-
     font-size:18px;
     line-height:1.7;
-
     margin-bottom:32px;
   }
 
@@ -417,39 +382,20 @@
     flex-wrap:wrap;
     align-items:center;
     justify-content:flex-start;
-
     gap:8px;
-
-    margin-bottom:36px;
-
-    max-width:1120px;
-  }
-
-  .hero h1,
-  .hero-desc,
-  .hero-skills,
-  .hero-cta{
-    width:100%;
-    max-width:1120px;
+    margin-bottom:48px;
   }
 
   .hero-skills span{
     font-family:var(--font-body);
     font-weight:500;
     font-size:13px;
-
     color:var(--text-dim);
-
     background:var(--bg-panel);
-
     border:1px solid var(--line);
-
     padding:7px 14px;
-
     border-radius:100px;
-
     box-shadow:var(--shadow);
-
     transition:border-color .2s, color .2s, transform .2s;
   }
 
@@ -465,28 +411,19 @@
     align-items:center;
     gap:14px;
     flex-wrap:wrap;
+    width: 100%;
   }
 
   .btn{
     display:inline-flex;
     align-items:center;
     gap:8px;
-
     font-family:var(--font-body);
-
     font-size:14px;
     font-weight:600;
-
     padding:13px 22px;
-
     border-radius:100px;
-
-    transition:
-      transform .15s ease,
-      background .2s,
-      border-color .2s,
-      box-shadow .2s;
-
+    transition: transform .15s ease, background .2s, border-color .2s, box-shadow .2s;
     border:1px solid transparent;
   }
 
@@ -525,14 +462,12 @@
     transition: all 0.3s ease;
   }
 
-  /* AI ZONE: Cyber Blue / Cyan Theme */
   .zone-ai {
     background: linear-gradient(180deg, rgba(63,102,214,0.12) 0%, transparent 100%);
     border-left: 6px solid var(--llm);
     padding-left: 30px;
   }
 
-  /* GAME ZONE: Deep Purple / Indigo Theme */
   .zone-game {
     background: linear-gradient(180deg, rgba(109,91,208,0.12) 0%, transparent 100%);
     border-left: 6px solid var(--indigo);
@@ -558,7 +493,6 @@
   .zone-header p {
     color: var(--text-dim);
     font-size: 16px;
-    /* FIX: Changed max-width from 600px to 100% to prevent text wrapping on large screens */
     max-width: 100%; 
   }
 
@@ -579,7 +513,6 @@
     border-top: 4px solid transparent; 
   }
 
-  /* Distinct top border colors per zone */
   .zone-ai .card { border-top-color: var(--llm); }
   .zone-game .card { border-top-color: var(--indigo); }
 
@@ -675,64 +608,6 @@
     border-color:var(--mint);
   }
 
-  /* ---------- Capabilities ---------- */
-
-  .capabilities-grid{
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-    gap:16px;
-  }
-
-  .capability{
-    position:relative;
-    background:var(--bg-panel);
-    border:1px solid var(--line);
-    border-top:2px solid transparent;
-    border-radius:var(--radius);
-    padding:22px;
-    box-shadow:var(--shadow);
-    transition: transform .2s, border-color .2s;
-  }
-
-  .capability::before{
-    content:"";
-    position:absolute;
-    top:-2px;
-    left:16px;
-    right:16px;
-    height:2px;
-    border-radius:2px;
-    background:linear-gradient(90deg, var(--indigo), var(--coral));
-  }
-
-  .capability:hover{
-    transform:translateY(-4px);
-    border-color:var(--indigo);
-  }
-
-  .capability-number{
-    font-family:var(--font-mono);
-    font-size:10.5px;
-    font-weight:600;
-    letter-spacing:0.04em;
-    color:var(--indigo);
-    margin-bottom:14px;
-  }
-
-  .capability h3{
-    font-family:var(--font-display);
-    font-size:17.5px;
-    font-weight:700;
-    margin-bottom:8px;
-    color:var(--text);
-  }
-
-  .capability p{
-    color:var(--text-dim);
-    font-size:13.5px;
-    line-height:1.65;
-  }
-
   /* ---------- Contact ---------- */
 
   #contact .section-head p{
@@ -810,12 +685,11 @@
 <nav class="toolbar">
   <div class="toolbar-left">
     <!-- <a href="#hero" class="toolbar-logo">Faizan Ahmed</a> -->
-    <!-- <span class="toolbar-role">Senior Software Engineer | Unity & Unreal | AI Solutions Architect</span> -->
+    <!-- <span class="toolbar-role">Senior Software Engineer | AI Solutions Architect</span> -->
   </div>
   <div class="toolbar-menu">
     <a href="#ai-projects">AI Projects</a>
     <a href="#game-projects">Game Projects</a>
-    <!-- <a href="#capabilities">Capabilities</a> -->
     <a href="#contact">Contact</a>
   </div>
   <div class="toolbar-status"><span class="dot-live"></span> Open to Work</div>
@@ -824,37 +698,35 @@
 <section id="hero">
   <div class="viewport">
     <div class="viewport-inner">
-    <h1 style="font-size: 1.7rem;">
-  <span class="name">Faizan Ahmed</span> - Senior Software Engineer | Unity & Unreal | AI Solutions Architect
-</h1>
+      <h1 style="font-size: 1.7rem;">
+        <span class="name">Faizan Ahmed</span> - Senior Software Engineer | Unity & Unreal | AI Solutions Architect
+      </h1>
 
-    <p class="hero-desc">
-      <br>
-      With <b>5+ years of experience</b> and a strong orientation to detail, I take full ownership of the software development lifecycle—from initial architectural design and implementation to testing, deployment, and final delivery.
-      <br><br>
-      <b>Game Development:</b> Expert in <b>Unity and Unreal Engine</b>, specializing in scalable mobile, web, and hyper-casual games. Deeply proficient in <b>Firebase, In-App Purchases (IAP), API integrations</b>, and developing custom <b>native SDK wrappers</b>.
-      <br><br>
-      <b>AI Engineering:</b> Specializing in <b>RAG, LLMs, and semantic search</b> to build intelligent AI voice agents and WhatsApp bots. Experienced in architecting scalable, low-latency AI systems using <b>Redis, Celery, and Groq</b> with robust token rate-limiting mechanisms.
-    </p>
+      <p class="hero-desc">
+        <br>
+        With <b>5+ years of experience</b> and a strong orientation to detail, I take full ownership of the software development lifecycle—from initial architectural design and implementation to testing, deployment, and final delivery.
+        <br><br>
+        <b>Game Development:</b> Expert in <b>Unity and Unreal Engine</b>, specializing in scalable mobile, web, and hyper-casual games. Deeply proficient in <b>Firebase, In-App Purchases (IAP), API integrations</b>, and developing custom <b>native SDK wrappers</b>.
+        <br><br>
+        <b>AI Engineering:</b> Specializing in <b>RAG, LLMs, and semantic search</b> to build intelligent AI voice agents and WhatsApp bots. Experienced in architecting scalable, low-latency AI systems using <b>Redis, Celery, and Groq</b> with robust token rate-limiting mechanisms.
+      </p>
 
-    <div class="hero-skills">
-        <!-- Game Dev Stack -->
-        <span class="skill-tag">Unity</span><span class="skill-tag">Unreal Engine</span>
-        <span class="skill-tag">Firebase</span><span class="skill-tag">IAP</span>
-        <span class="skill-tag">API Integration</span><span class="skill-tag">Native SDK Wrappers</span>
-        <span class="skill-tag">Environment Design</span><span class="skill-tag">2D Rigging</span>
-        
-        <!-- AI Stack -->
-        <span class="skill-tag">RAG</span><span class="skill-tag">LLMs</span>
-        <span class="skill-tag">Computer Vision</span><span class="skill-tag">Pinecone</span>
-        <span class="skill-tag">WhatsApp Bots</span><span class="skill-tag">ML-Agents</span>
-        <span class="skill-tag">PCG</span><span class="skill-tag">Redis</span>
-        <span class="skill-tag">Celery</span><span class="skill-tag">Playwright</span>
-        <span class="skill-tag">Twilio</span><span class="skill-tag">Groq</span>
-    </div>
-</div>
+      <div class="hero-skills">
+          <!-- Game Dev Stack -->
+          <span>Unity</span><span>Unreal Engine</span>
+          <span>Firebase</span><span>IAP</span>
+          <span>API Integration</span><span>Native SDK Wrappers</span>
+          <span>Environment Design</span><span>2D Rigging</span>
+          
+          <!-- AI Stack -->
+          <span>RAG</span><span>Computer Vision</span>
+          <span>LLMs</span><span>Pinecone</span>
+          <span>WhatsApp Bots</span><span>ML-Agents</span>
+          <span>PCG</span><span>Redis</span>
+          <span>Celery</span><span>Playwright</span>
+          <span>Twilio</span><span>Groq</span>
+      </div>
 
-      
       <div class="hero-cta">
         <a href="#ai-projects" class="btn btn-primary">▶ View AI Projects</a>
         <a href="#game-projects" class="btn btn-outline">🎮 View Game Projects</a>
@@ -880,90 +752,62 @@
        <div class="card">
         <div class="card-head"><span class="engine-dot ai"></span><h3>VisionQC: Industrial Computer Vision Auditor</h3></div>
         <div class="card-body">
-          <p>Engineered a Computer Vision (CV) system for real-time defect detection on electronics production lines, replacing manual inspection with autonomous AI auditing.
+          <p>Engineered a CV system for real-time defect detection on electronics lines, using RAG to audit live feeds against industrial SOPs.
           <br><br>
-          • <b>CV-SOP Grounding:</b> Developed a multimodal pipeline that uses Computer Vision to analyze live camera feeds and compare physical evidence against industrial SOPs using RAG.
-          <br><br>
-          • <b>Autonomous Intervention:</b> Built a detection system for burnt components, damaged circuitry, or FOD, capable of triggering emergency line stops to prevent batch failure.
-          <br><br>
-          • <b>Tool-Calling Pipeline:</b> Implemented an autonomous tool-calling architecture to handle real-time event detection and seamless PCB approval for maximum production flow.
+          • Built a tool-calling pipeline to detect circuitry failures and trigger emergency line stops to prevent batch failure.
           </p>
           <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1NJ3ifZXx0dVOGjXW3MjbmAf1Iw_AJKAe/preview" target="_blank">▶ Video</a></div>
-          <div class="tags"><span>Computer Vision</span><span>Industrial AI</span><span>RAG</span><span>Tool Use</span><span>FastAPI</span><span>Supabase</span></div>
+          <div class="tags"><span>Computer Vision</span><span>RAG</span><span>Industrial AI</span><span>Tool Use</span></div>
         </div>
       </div>
 
       <div class="card">
         <div class="card-head"><span class="engine-dot ai"></span><h3>DocuVerify: Multimodal Compliance Engine</h3></div>
         <div class="card-body">
-          <p>Built a high-precision verification system specialized in automated invoice intelligence and corporate document auditing against dynamic company policies.
+          <p>Developed a multimodal verification system for automated invoice intelligence and corporate document auditing using RAG.
           <br><br>
-          • <b>Modular Rule-Set:</b> Engineered a flexible architecture using Supabase and RAG, allowing administrators to extend compliance rules and policy sets without changing the core code.
-          <br><br>
-          • <b>Bulk Processing Pipeline:</b> Developed the system to support bulk document uploads, integrated with a managerial approval/rejection workflow for final validation.
-          <br><br>
-          • <b>Automated Decisioning:</b> Implemented an AI Tool Calling pipeline to autonomously approve, reject, or flag invoices based on real-time compliance markers.
+          • Implemented a modular rule-set and tool-calling pipeline to autonomously approve or reject documents based on compliance markers.
           </p>
           <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1OsGfrllaEgqbETfk1yuvs4V_w-Vw7wv7/view" target="_blank">▶ Video</a></div>
-          <div class="tags"><span>Multimodal AI</span><span>Invoice Intelligence</span><span>RAG</span><span>Tool Use</span><span>FastAPI</span><span>Supabase</span></div>
+          <div class="tags"><span>Multimodal AI</span><span>RAG</span><span>Compliance</span><span>Tool Use</span></div>
         </div>
       </div>
 
       <div class="card">
         <div class="card-head"><span class="engine-dot ai"></span><h3>WhatsApp OmniChannel Workflow Engine</h3></div>
         <div class="card-body">
-          <p>Engineered a WhatsApp-driven automation system that guides customers through structured service workflows and automated complaint registration.
+          <p>Engineered a WhatsApp system for complaint registration with structured workflows and strict input validation.
           <br><br>
-          • <b>WhatsApp State Management:</b> Built a robust state-tracking system to manage multi-step user journeys, ensuring strict input validation and seamless workflow transitions.
-          <br><br>
-          • <b>Automated CRM Integration:</b> Developed a backend pipeline to automatically register complaints, generate unique tracking IDs, and sync data directly to Google Sheets.
-          <br><br>
-          • <b>Real-Time Alerts:</b> Implemented an event-driven notification system to immediately alert technical teams via email upon the registration of a critical complaint.
+          • Automated unique ID generation, Google Sheets syncing, and real-time email alerts for technical teams.
           </p>
           <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1nCgYvtM9bz1YGZxz3gHq1Cdr29aurIWs/preview" target="_blank">▶ Video</a></div>
-          <div class="tags"><span>WhatsApp API</span><span>Workflow Automation</span><span>Conversational AI</span><span>State Management</span></div>
+          <div class="tags"><span>WhatsApp API</span><span>Workflow Automation</span><span>Conversational AI</span></div>
         </div>
       </div>
 
-                  <div class="card">
-        <div class="card-head"><span class="engine-dot ai"></span><h3>Knowledge Orchestrator — Secure RAG Pipeline</h3></div>
+      <div class="card">
+        <div class="card-head"><span class="engine-dot ai"></span><h3>Knowledge Orchestrator: Secure RAG Pipeline</h3></div>
         <div class="card-body">
-          <p>Built an RAG system that transforms static company policies into a secure, self-service intelligence portal.
+          <p>Built a RAG system for querying company and HR data using natural language and semantic retrieval.
           <br><br>
-          • <b>Auto-Sync Pipeline:</b> Engineered a background engine that syncs Google Drive folders to Pinecone, featuring hybrid OCR (Tesseract) to index scanned PDFs and images.
-          <br><br>
-          • <b>Multi-Layer Cache:</b> Implemented a 3-tier pipeline (Postgres → Pinecone → LLM) to serve identical or paraphrased queries instantly, reducing API costs.
-          <br><br>
-          • <b>Precision Retrieval:</b> Developed a diversified ranking algorithm and strict grounding to ensure zero-hallucination answers with traceable citations.
-          <br><br>
-          • <b>Multimodal & Governance:</b> Integrated Groq Whisper for voice-to-text and a custom token-tracking quota system to prevent API abuse.
+          • Combined LLM reasoning and tool-calling to execute backend actions from a modular knowledge base.
           </p>
           <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1SghhzTAsHP04Eafl0o0y-iT20fk4bK-e/preview" target="_blank">▶ Video</a></div>
-          <div class="tags"><span>AI Engineering</span><span>RAG</span><span>Pinecone</span><span>OCR</span><span>Google Drive API</span><span>PostgreSQL</span></div>
+          <div class="tags"><span>RAG</span><span>Semantic Search</span><span>Pinecone</span><span>LLMs</span></div>
         </div>
       </div>
 
-
-
-                  <div class="card">
+      <div class="card">
         <div class="card-head"><span class="engine-dot ai"></span><h3>OmniCache AI Orchestrator</h3></div>
         <div class="card-body">
-          <p>Built a cost-optimized AI orchestrator designed to reduce API latency and expenses using a multi-tier retrieval strategy.
+          <p>Developed a cost-optimized orchestrator using a 3-tier cache (Postgres → Pinecone → LLM) to reduce API latency.
           <br><br>
-          • <b>Multi-Layer Cache:</b> Implemented a 3-tier pipeline (Postgres → Pinecone → LLM) to serve repeated or similar queries instantly without hitting the LLM.
-          <br><br>
-          • <b>Multimodal AI:</b> Integrated Groq Whisper for real-time speech-to-text and Vision LLMs for image analysis.
-          <br><br>
-          • <b>State Management:</b> Used PostgreSQL to manage persistent, multi-session conversation histories.
-          <br><br>
-          • <b>Resource Control:</b> Developed a custom token-tracking quota system and rate-limiting to prevent API abuse.
+          • Integrated Groq Whisper for real-time speech-to-text and implemented a custom token-tracking quota system.
           </p>
           <div class="btn-group"><a class="btn-icon" href="https://drive.google.com/file/d/1pw-3ykKF1S3k4nMexzoxHyJEeRCHIdtV/preview" target="_blank">▶ Video</a></div>
-          <div class="tags"><span>FastAPI</span><span>Pinecone</span><span>PostgreSQL</span><span>Multimodal AI</span><span>Semantic Search</span><span>Groq</span></div>
+          <div class="tags"><span>Groq</span><span>Redis</span><span>Multi-tier Cache</span><span>FastAPI</span></div>
         </div>
       </div>
-
-
     </div>
   </div>
 
@@ -1000,7 +844,7 @@
         <div class="card-body">
           <p>ACPlus Respiratory Therapy (ART) uses an FDA-cleared Bluetooth spirometer to convert pulmonary function test data into gamified biofeedback experiences.</p>
           <div class="btn-group"><a class="btn-icon" href="https://apps.apple.com/us/app/ata/id1666902701" target="_blank">📱 App Store</a></div>
-          <div class="tags"><span>Unity</span><span>Respiratory Game</span><span>Biofeedback</span><span>Health Focused</span></div>
+          <div class="tags"><span>Unity</span><span>HealthTech</span><span>Biofeedback</span><span>Health Focused</span></div>
         </div>
       </div>
 
@@ -1132,88 +976,6 @@
     </div>
   </div>
 </section>
-
-
-<!-- <section id="capabilities">
-  <div class="section-head">
-    <div class="eyebrow">Core Capabilities</div>
-    <h2>What I Build</h2>
-  </div>
-
-  <div class="capabilities-grid">
-    <div class="capability">
-      <div class="capability-number">01</div>
-      <h3>Gameplay Systems</h3>
-      <p>Designing and implementing gameplay mechanics, player systems, combat, interaction, progression, and reusable gameplay logic in Unity and Unreal.</p>
-    </div>
-
-    <div class="capability">
-      <div class="capability-number">02</div>
-      <h3>Unity Development</h3>
-      <p>Building production-ready Unity projects with C#, gameplay architecture, UI systems, animation, integrations, debugging, and platform-specific delivery.</p>
-    </div>
-
-    <div class="capability">
-      <div class="capability-number">03</div>
-      <h3>Unreal Engine</h3>
-      <p>Developing gameplay and interactive systems in Unreal using Blueprints and C++, including combat systems, AI behavior, level systems, and core game architecture.</p>
-    </div>
-
-    <div class="capability">
-      <div class="capability-number">04</div>
-      <h3>Game UI/UX</h3>
-      <p>Turning Figma designs and gameplay requirements into responsive, polished interfaces with clear player flows, animations, feedback, and in-game interaction.</p>
-    </div>
-
-    <div class="capability">
-      <div class="capability-number">05</div>
-      <h3>Performance Optimization</h3>
-      <p>Profiling and optimizing frame rate, memory, rendering, assets, and runtime systems to keep games responsive across a wide range of mobile and desktop hardware.</p>
-    </div>
-
-    <div class="capability">
-      <div class="capability-number">06</div>
-      <h3>Game AI & NPC Systems</h3>
-      <p>Creating intelligent NPC behavior, enemy combat logic, navigation, reactive interactions, and AI-driven character systems for gameplay experiences.</p>
-    </div>
-
-    <div class="capability">
-      <div class="capability-number">07</div>
-      <h3>2D & 3D Animation</h3>
-      <p>Working with character animation, 2D rigging, skeletal animation, interactive animation states, and real-time visual feedback for gameplay.</p>
-    </div>
-
-    <div class="capability">
-      <div class="capability-number">08</div>
-      <h3>Backend & Live Services</h3>
-      <p>Integrating services such as Firebase, Firestore, PlayFab, authentication, player data, APIs, ads, and IAP systems into game projects.</p>
-    </div>
-
-    <div class="capability">
-      <div class="capability-number">09</div>
-      <h3>Environment & Level Design</h3>
-      <p>Creating playable environments and level systems with terrain, world composition, lighting, scene flow, level selection, and interactive world elements.</p>
-    </div>
-
-    <div class="capability">
-      <div class="capability-number">10</div>
-      <h3>Shaders & Real-Time Effects</h3>
-      <p>Building real-time visual systems such as fluid simulation shaders and gameplay effects while balancing visual quality with runtime performance.</p>
-    </div>
-
-    <div class="capability">
-      <div class="capability-number">11</div>
-      <h3>AI-Powered Game Features</h3>
-      <p>Integrating AI capabilities into interactive experiences, including conversational NPCs, OpenAI-powered systems, speech features, and intelligent game interactions.</p>
-    </div>
-
-    <div class="capability">
-      <div class="capability-number">12</div>
-      <h3>Production & Integration</h3>
-      <p>Taking features from implementation through integration, debugging, version control, platform deployment, and production-ready delivery.</p>
-    </div>
-  </div>
-</section> -->
 
 <section id="contact">
   <div class="section-head">
