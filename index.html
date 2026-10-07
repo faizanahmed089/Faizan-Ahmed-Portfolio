@@ -378,7 +378,6 @@
   }
 
   .viewport-inner{
-    max-width:1180px;
     margin:0 auto;
     position:relative;
     z-index:1;
@@ -408,7 +407,7 @@
   #hero h1{
     font-family:var(--font-display);
     font-weight:700;
-    font-size:clamp(52px, 10vw, 116px);
+    font-size:clamp(48px, 6.4vw, 88px);
     line-height:0.98;
     letter-spacing:-0.02em;
     text-transform:uppercase;
@@ -556,6 +555,121 @@
     transform:translateY(-2px);
     background:rgba(34,211,238,0.14);
     box-shadow:0 0 28px rgba(34,211,238,0.35);
+  }
+
+  /* ---------- Hero video ---------- */
+
+  .hero-video{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  .hero-video-toggle{
+    position:absolute;
+    right:14px;
+    bottom:14px;
+    z-index:2;
+
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    font-weight:500;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+
+    color:#ffffff;
+    background:rgba(6,7,13,0.65);
+    border:1px solid rgba(255,255,255,0.28);
+    border-radius:100px;
+    padding:8px 14px;
+
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    cursor:pointer;
+    transition:border-color .2s, background .2s;
+  }
+
+  .hero-video-toggle:hover{
+    border-color:var(--cyan);
+    background:rgba(34,211,238,0.22);
+  }
+
+  /* Video sits in a framed screen beside the text */
+
+  .viewport-inner{
+    max-width:1320px;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
+    gap:56px;
+    align-items:center;
+  }
+
+  .hero-text{
+    order:1;
+  }
+
+  .hero-media{
+    order:2;
+    position:relative;
+    aspect-ratio:16/9;
+    border-radius:20px;
+    overflow:hidden;
+
+    border:1px solid rgba(255,255,255,0.18);
+    box-shadow:
+      0 30px 80px rgba(0,0,0,0.65),
+      0 0 70px rgba(139,92,246,0.40),
+      0 0 0 1px rgba(34,211,238,0.30);
+
+    transform:perspective(1400px) rotateY(-7deg) rotateX(2deg);
+    transition:transform .5s cubic-bezier(.2,.7,.3,1);
+  }
+
+  .hero-media:hover{
+    transform:none;
+  }
+
+  .hero-media::before{
+    content:"● Showreel";
+    position:absolute;
+    top:14px;
+    left:14px;
+    z-index:1;
+
+    font-family:var(--font-mono);
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+
+    color:#ffffff;
+    background:rgba(6,7,13,0.65);
+    border:1px solid rgba(255,255,255,0.22);
+    border-radius:100px;
+    padding:5px 12px;
+  }
+
+  @media (max-width:980px){
+
+    .viewport-inner{
+      grid-template-columns:1fr;
+      gap:30px;
+    }
+
+    .hero-text{
+      display:contents;
+    }
+
+    .hero-title{ order:1; }
+    .hero-media{ order:2; transform:none; }
+    .hero-about{ order:3; }
+    .hero-cta{ order:4; }
+
+    .hero-role{
+      margin-bottom:0;
+    }
+
   }
 
   /* ---------- Projects ---------- */
@@ -1050,12 +1164,23 @@
 <section id="hero">
   <div class="viewport">
     <div class="viewport-inner">
+      <div class="hero-media">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg">
+          <source src="assets/hero.mp4" type="video/mp4">
+        </video>
+        <button class="hero-video-toggle" type="button" aria-label="Pause video">❚❚ Pause</button>
+      </div>
+
+      <div class="hero-text">
+      <div class="hero-title">
       <div class="hero-kicker">Game Developer Portfolio</div>
 
       <h1><span class="name">Faizan Ahmed</span></h1>
 
       <p class="hero-role">Senior Software Engineer <i>//</i> Unity &amp; Unreal</p>
+      </div>
 
+      <div class="hero-about">
       <div class="hero-desc">
         <p>With <b>5+ years of experience</b> and a strong attention to detail, I take full ownership of the software development lifecycle—from initial architectural design and implementation to testing, deployment, and final delivery.</p>
         <p>Expert in <b>Unity</b> and <b>Unreal Engine</b>, with experience building scalable mobile, web, health tech/medical simulation, and hyper-casual games. I also work with <b>Python (FastAPI)</b>, <b>Node.js (Express.js)</b> for API development, and service integration.</p>
@@ -1073,11 +1198,13 @@
           <span>Express.js</span>
           <span>SDKs</span>
       </div>
+      </div>
 
       <div class="hero-cta">
         <a href="#game-projects" class="btn btn-primary">🎮 View Projects</a>
         <a href="#contact" class="btn btn-outline">Get in Touch</a>
         <!-- <a href="#game-projects" class="btn btn-outline">🎮 View Projects</a> -->
+      </div>
       </div>
     </div>
   </div>
@@ -1336,6 +1463,27 @@
       setTimeout(() => { button.textContent = "Copy Email"; }, 1800);
     });
   }
+
+  // Hero video: pause button, no autoplay for reduced motion, and stop playing when scrolled away
+  const heroVideo = document.querySelector(".hero-video");
+  const heroToggle = document.querySelector(".hero-video-toggle");
+  let heroPausedByUser = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function syncHeroToggle() {
+    heroToggle.textContent = heroVideo.paused ? "▶ Play" : "❚❚ Pause";
+    heroToggle.setAttribute("aria-label", heroVideo.paused ? "Play video" : "Pause video");
+  }
+  heroVideo.addEventListener("play", syncHeroToggle);
+  heroVideo.addEventListener("pause", syncHeroToggle);
+  heroToggle.addEventListener("click", () => {
+    heroPausedByUser = !heroVideo.paused;
+    if (heroPausedByUser) heroVideo.pause(); else heroVideo.play();
+  });
+  if (heroPausedByUser) heroVideo.pause();
+  new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting) heroVideo.pause();
+    else if (!heroPausedByUser) heroVideo.play().catch(() => {});
+  }, { threshold: 0.05 }).observe(document.getElementById("hero"));
 
   // Fade sections and cards in as they scroll into view
   document.documentElement.classList.add("js");
