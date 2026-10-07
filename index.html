@@ -567,7 +567,87 @@
     object-fit:cover;
   }
 
-  /* Player controls: chaptered seek bar (one segment per game) + play/pause */
+  /* Game tabs above the video: one per game, the playing one highlighted */
+
+  .hero-tabs{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:16px;
+  }
+
+  .hero-tab{
+    font-family:var(--font-display);
+    font-size:13.5px;
+    font-weight:700;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+
+    color:var(--text-dim);
+    background:rgba(255,255,255,0.04);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:8px 14px;
+
+    cursor:pointer;
+    transition:color .2s, border-color .2s, background .2s, box-shadow .25s;
+  }
+
+  .hero-tab span{
+    font-family:var(--font-mono);
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:0;
+    margin-right:8px;
+    opacity:0.7;
+  }
+
+  .hero-tab:hover{
+    color:#ffffff;
+    border-color:var(--cyan);
+  }
+
+  .hero-tab.is-active{
+    color:#ffffff;
+    background:linear-gradient(110deg, var(--violet), var(--pink));
+    border-color:transparent;
+    box-shadow:0 6px 24px rgba(139,92,246,0.45);
+  }
+
+  /* Previous / next game arrows on the video */
+
+  .hero-nav{
+    position:absolute;
+    top:50%;
+    z-index:2;
+    transform:translateY(-50%);
+
+    width:40px;
+    height:40px;
+
+    font-size:22px;
+    line-height:1;
+
+    color:#ffffff;
+    background:rgba(6,7,13,0.55);
+    border:1px solid rgba(255,255,255,0.28);
+    border-radius:50%;
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    cursor:pointer;
+    transition:border-color .2s, background .2s;
+  }
+
+  .hero-nav-prev{ left:12px; }
+  .hero-nav-next{ right:12px; }
+
+  .hero-nav:hover{
+    border-color:var(--cyan);
+    background:rgba(34,211,238,0.28);
+  }
+
+  /* Player controls: seek bar for the current video + play/pause */
 
   .hero-controls{
     position:absolute;
@@ -588,9 +668,11 @@
   }
 
   .hero-seek-track{
-    display:flex;
-    gap:4px;
+    position:relative;
     height:4px;
+    border-radius:2px;
+    overflow:hidden;
+    background:rgba(255,255,255,0.30);
     transition:height .15s;
   }
 
@@ -598,20 +680,6 @@
   .hero-seek.is-dragging .hero-seek-track,
   .hero-seek:focus-visible .hero-seek-track{
     height:7px;
-  }
-
-  .hero-seek-seg{
-    position:relative;
-    min-width:4px;
-    height:100%;
-    border-radius:2px;
-    overflow:hidden;
-    background:rgba(255,255,255,0.30);
-    transition:background .15s;
-  }
-
-  .hero-seek-seg.is-hover{
-    background:rgba(255,255,255,0.50);
   }
 
   .hero-seek-fill{
@@ -641,14 +709,6 @@
     opacity:0;
     pointer-events:none;
     transition:opacity .15s;
-  }
-
-  .hero-seek-tip b{
-    font-family:var(--font-display);
-    font-size:13px;
-    font-weight:700;
-    letter-spacing:0.04em;
-    margin-right:8px;
   }
 
   .hero-seek:hover .hero-seek-tip,
@@ -707,7 +767,7 @@
     color:rgba(255,255,255,0.78);
   }
 
-  /* Video sits in a framed screen beside the text */
+  /* Player sits in a framed screen beside the text */
 
   .viewport-inner{
     max-width:1320px;
@@ -721,12 +781,16 @@
     order:1;
   }
 
-  .hero-media{
+  .hero-player{
     order:2;
+  }
+
+  .hero-media{
     position:relative;
     aspect-ratio:16/9;
     border-radius:20px;
     overflow:hidden;
+    background:#000000;
 
     border:1px solid rgba(255,255,255,0.18);
     box-shadow:
@@ -738,28 +802,8 @@
     transition:transform .5s cubic-bezier(.2,.7,.3,1);
   }
 
-  .hero-media:hover{
+  .hero-player:hover .hero-media{
     transform:none;
-  }
-
-  .hero-media::before{
-    content:"● Showreel";
-    position:absolute;
-    top:14px;
-    left:14px;
-    z-index:1;
-
-    font-family:var(--font-mono);
-    font-size:11px;
-    font-weight:600;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-
-    color:#ffffff;
-    background:rgba(6,7,13,0.65);
-    border:1px solid rgba(255,255,255,0.22);
-    border-radius:100px;
-    padding:5px 12px;
   }
 
   @media (max-width:980px){
@@ -774,9 +818,13 @@
     }
 
     .hero-title{ order:1; }
-    .hero-media{ order:2; transform:none; }
+    .hero-player{ order:2; }
     .hero-about{ order:3; }
     .hero-cta{ order:4; }
+
+    .hero-media{
+      transform:none;
+    }
 
     .hero-role{
       margin-bottom:0;
@@ -1282,19 +1330,25 @@
 <section id="hero">
   <div class="viewport">
     <div class="viewport-inner">
-      <div class="hero-media">
-        <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg">
-          <source src="assets/hero.mp4" type="video/mp4">
-        </video>
-        <div class="hero-controls">
-          <div class="hero-seek" role="slider" tabindex="0" aria-label="Seek video" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-            <div class="hero-seek-tip"></div>
-            <div class="hero-seek-track"></div>
-          </div>
-          <div class="hero-controls-row">
-            <button class="hero-video-toggle" type="button" aria-label="Pause video">❚❚</button>
-            <span class="hero-chapter"></span>
-            <span class="hero-time"></span>
+      <div class="hero-player">
+        <div class="hero-tabs" role="group" aria-label="Game videos"></div>
+
+        <div class="hero-media">
+          <video class="hero-video" autoplay muted playsinline preload="metadata" poster="assets/tower-tumble.jpg">
+            <source src="assets/tower-tumble.mp4" type="video/mp4">
+          </video>
+          <button class="hero-nav hero-nav-prev" type="button" aria-label="Previous game">&#8249;</button>
+          <button class="hero-nav hero-nav-next" type="button" aria-label="Next game">&#8250;</button>
+          <div class="hero-controls">
+            <div class="hero-seek" role="slider" tabindex="0" aria-label="Seek video" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div class="hero-seek-tip"></div>
+              <div class="hero-seek-track"><div class="hero-seek-fill"></div></div>
+            </div>
+            <div class="hero-controls-row">
+              <button class="hero-video-toggle" type="button" aria-label="Pause video">❚❚</button>
+              <span class="hero-chapter"></span>
+              <span class="hero-time"></span>
+            </div>
           </div>
         </div>
       </div>
@@ -1592,17 +1646,66 @@
     });
   }
 
-  // Showreel chapters: one per game, in order. "start" is the second where that game begins.
-  // Each chapter runs until the next one starts; the last runs to the end of the video.
-  const heroChapters = [
-    { title: "Tower Tumble", start: 0 }
+  // Hero videos: one per game, played in this order. To add a game, add a line here.
+  const heroGames = [
+    { title: "Tower Tumble", src: "assets/tower-tumble.mp4", poster: "assets/tower-tumble.jpg" },
+    { title: "Aerial War", src: "assets/aerial-war.mp4", poster: "assets/aerial-war.jpg" }
   ];
 
-  // Hero video: pause button, no autoplay for reduced motion, and stop playing when scrolled away
   const heroVideo = document.querySelector(".hero-video");
   const heroToggle = document.querySelector(".hero-video-toggle");
+  const heroTabs = document.querySelector(".hero-tabs");
+  const heroSeek = document.querySelector(".hero-seek");
+  const heroSeekFill = document.querySelector(".hero-seek-fill");
+  const heroSeekTip = document.querySelector(".hero-seek-tip");
+  const heroTitleLabel = document.querySelector(".hero-chapter");
+  const heroTimeLabel = document.querySelector(".hero-time");
+  let heroIndex = 0;
   let heroPausedByUser = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  function formatTime(seconds) {
+    const s = Math.max(0, Math.floor(seconds || 0));
+    return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
+  }
+
+  // Hero player: game tabs, previous / next, and moving on to the next game when one ends
+  const heroTabButtons = heroGames.map((game, i) => {
+    const tab = document.createElement("button");
+    tab.type = "button";
+    tab.className = "hero-tab";
+    const number = document.createElement("span");
+    number.textContent = String(i + 1).padStart(2, "0");
+    tab.append(number, game.title);
+    tab.addEventListener("click", () => showHeroGame(i));
+    heroTabs.appendChild(tab);
+    return tab;
+  });
+
+  function markHeroGame() {
+    heroTabButtons.forEach((tab, i) => {
+      tab.classList.toggle("is-active", i === heroIndex);
+      tab.setAttribute("aria-pressed", i === heroIndex);
+    });
+    heroTitleLabel.textContent = heroGames[heroIndex].title;
+  }
+
+  function showHeroGame(index) {
+    heroIndex = (index + heroGames.length) % heroGames.length;
+    const game = heroGames[heroIndex];
+    heroVideo.poster = game.poster;
+    heroVideo.src = game.src;
+    heroVideo.load();
+    markHeroGame();
+    updateHeroSeek();
+    if (!heroPausedByUser) heroVideo.play().catch(() => {});
+  }
+
+  document.querySelector(".hero-nav-prev").addEventListener("click", () => showHeroGame(heroIndex - 1));
+  document.querySelector(".hero-nav-next").addEventListener("click", () => showHeroGame(heroIndex + 1));
+  heroVideo.addEventListener("ended", () => showHeroGame(heroIndex + 1));
+  markHeroGame();
+
+  // Hero player: pause button, no autoplay for reduced motion, and stop playing when scrolled away
   function syncHeroToggle() {
     heroToggle.textContent = heroVideo.paused ? "▶" : "❚❚";
     heroToggle.setAttribute("aria-label", heroVideo.paused ? "Play video" : "Pause video");
@@ -1611,7 +1714,7 @@
   heroVideo.addEventListener("pause", syncHeroToggle);
   heroToggle.addEventListener("click", () => {
     heroPausedByUser = !heroVideo.paused;
-    if (heroPausedByUser) heroVideo.pause(); else heroVideo.play();
+    if (heroPausedByUser) heroVideo.pause(); else heroVideo.play().catch(() => {});
   });
   if (heroPausedByUser) heroVideo.pause();
   new IntersectionObserver(([entry]) => {
@@ -1619,76 +1722,26 @@
     else if (!heroPausedByUser) heroVideo.play().catch(() => {});
   }, { threshold: 0.05 }).observe(document.getElementById("hero"));
 
-  // Hero video: seek bar split into one segment per chapter
-  const heroSeek = document.querySelector(".hero-seek");
-  const heroSeekTrack = document.querySelector(".hero-seek-track");
-  const heroSeekTip = document.querySelector(".hero-seek-tip");
-  const heroChapterLabel = document.querySelector(".hero-chapter");
-  const heroTimeLabel = document.querySelector(".hero-time");
-  let heroSegments = [];
-
-  function formatTime(seconds) {
-    const s = Math.max(0, Math.floor(seconds));
-    return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
-  }
-
-  function buildHeroSeek() {
-    const duration = heroVideo.duration;
-    if (!isFinite(duration) || heroSegments.length) return;
-    const chapters = heroChapters.filter((c) => c.start < duration);
-    heroSegments = chapters.map((chapter, i) => {
-      const end = i + 1 < chapters.length ? chapters[i + 1].start : duration;
-      const el = document.createElement("div");
-      el.className = "hero-seek-seg";
-      el.style.flex = (end - chapter.start) + " 1 0";
-      const fill = document.createElement("div");
-      fill.className = "hero-seek-fill";
-      el.appendChild(fill);
-      heroSeekTrack.appendChild(el);
-      return { title: chapter.title, start: chapter.start, end, el, fill };
-    });
-    updateHeroSeek();
-  }
-
-  function heroSegmentAt(time) {
-    return heroSegments.find((seg) => time < seg.end) || heroSegments[heroSegments.length - 1];
-  }
-
+  // Hero player: seek bar for the video that is playing
   function updateHeroSeek() {
-    if (!heroSegments.length) return;
+    const duration = heroVideo.duration;
     const time = heroVideo.currentTime;
-    heroSegments.forEach((seg) => {
-      const done = Math.min(1, Math.max(0, (time - seg.start) / (seg.end - seg.start)));
-      seg.fill.style.width = (done * 100) + "%";
-    });
-    const current = heroSegmentAt(time);
-    heroChapterLabel.textContent = current.title;
-    heroTimeLabel.textContent = formatTime(time) + " / " + formatTime(heroVideo.duration);
-    heroSeek.setAttribute("aria-valuenow", Math.round((time / heroVideo.duration) * 100));
-    heroSeek.setAttribute("aria-valuetext", current.title + ", " + formatTime(time));
+    const done = isFinite(duration) && duration > 0 ? Math.min(1, time / duration) : 0;
+    heroSeekFill.style.width = (done * 100) + "%";
+    heroTimeLabel.textContent = formatTime(time) + " / " + formatTime(duration);
+    heroSeek.setAttribute("aria-valuenow", Math.round(done * 100));
+    heroSeek.setAttribute("aria-valuetext", heroGames[heroIndex].title + ", " + formatTime(time));
   }
 
-  // Time under the pointer, measured against the segment it is over so the gaps don't skew it
   function heroTimeFromPointer(e) {
-    for (const seg of heroSegments) {
-      const rect = seg.el.getBoundingClientRect();
-      if (e.clientX <= rect.right || seg === heroSegments[heroSegments.length - 1]) {
-        const ratio = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
-        return seg.start + ratio * (seg.end - seg.start);
-      }
-    }
-    return 0;
+    const rect = heroSeek.getBoundingClientRect();
+    const ratio = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+    return ratio * heroVideo.duration;
   }
 
   function showHeroSeekTip(e) {
-    if (!heroSegments.length) return;
-    const time = heroTimeFromPointer(e);
-    const hovered = heroSegmentAt(time);
-    heroSegments.forEach((seg) => seg.el.classList.toggle("is-hover", seg === hovered));
-    heroSeekTip.innerHTML = "";
-    const title = document.createElement("b");
-    title.textContent = hovered.title;
-    heroSeekTip.append(title, formatTime(time));
+    if (!isFinite(heroVideo.duration)) return;
+    heroSeekTip.textContent = formatTime(heroTimeFromPointer(e));
     const rect = heroSeek.getBoundingClientRect();
     const half = heroSeekTip.offsetWidth / 2;
     const x = Math.min(rect.width - half, Math.max(half, e.clientX - rect.left));
@@ -1696,12 +1749,12 @@
   }
 
   function seekHeroTo(time) {
+    if (!isFinite(heroVideo.duration)) return;
     heroVideo.currentTime = Math.min(heroVideo.duration - 0.05, Math.max(0, time));
     updateHeroSeek();
   }
 
   heroSeek.addEventListener("pointerdown", (e) => {
-    if (!heroSegments.length) return;
     heroSeek.setPointerCapture(e.pointerId);
     heroSeek.classList.add("is-dragging");
     showHeroSeekTip(e);
@@ -1714,9 +1767,6 @@
   ["pointerup", "pointercancel"].forEach((type) => {
     heroSeek.addEventListener(type, () => heroSeek.classList.remove("is-dragging"));
   });
-  heroSeek.addEventListener("pointerleave", () => {
-    heroSegments.forEach((seg) => seg.el.classList.remove("is-hover"));
-  });
   heroSeek.addEventListener("keydown", (e) => {
     if (e.key === "ArrowRight") seekHeroTo(heroVideo.currentTime + 5);
     else if (e.key === "ArrowLeft") seekHeroTo(heroVideo.currentTime - 5);
@@ -1724,9 +1774,9 @@
     e.preventDefault();
   });
 
-  heroVideo.addEventListener("loadedmetadata", buildHeroSeek);
+  heroVideo.addEventListener("loadedmetadata", updateHeroSeek);
   heroVideo.addEventListener("timeupdate", updateHeroSeek);
-  if (heroVideo.readyState >= 1) buildHeroSeek();
+  updateHeroSeek();
 
   // Fade sections and cards in as they scroll into view
   document.documentElement.classList.add("js");
