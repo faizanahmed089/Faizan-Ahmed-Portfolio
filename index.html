@@ -1346,8 +1346,8 @@
         <div class="hero-tabs" role="group" aria-label="Game videos"></div>
 
         <div class="hero-media">
-          <video class="hero-video" autoplay muted playsinline preload="metadata" poster="assets/tower-tumble.jpg">
-            <source src="assets/tower-tumble.mp4" type="video/mp4">
+          <video class="hero-video" autoplay muted playsinline preload="metadata" poster="assets/aerial-war.jpg">
+            <source src="assets/aerial-war.mp4" type="video/mp4">
           </video>
           <button class="hero-nav hero-nav-prev" type="button" aria-label="Previous game"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
           <button class="hero-nav hero-nav-next" type="button" aria-label="Next game"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
@@ -1490,16 +1490,6 @@
 
     <div class="projects-grid">
       <div class="card">
-        <div class="card-head"><span class="engine-dot unity"></span><h3>Tower Tumble — Hyper-Casual Tower Climber</h3></div>
-        <div class="card-body">
-          <p>Tower Tumble is a hyper-casual tower climber with one-touch controls: hold to climb, swipe to dodge. It features 50 levels across 5 themed worlds, 5 boss fights, an endless Infinite Tower mode and a Daily Climb challenge.
-          <br><br>Built a full meta game (shop, skins with perks, boosters, daily rewards, quests, achievements) on a data-driven architecture, with Ads, IAP and leaderboard systems behind clean, provider-ready interfaces.</p>
-          <div class="btn-group"><a class="btn-icon" href="https://play.unity.com/en/games/50eb6561-d666-4d9b-a6c7-70deecf7fd24/build" target="_blank">🎮 Play in Browser</a></div>
-          <div class="tags"><span>Unity 6</span><span>Hyper-Casual</span><span>Game Design</span><span>Mobile</span><span>Monetization</span></div>
-        </div>
-      </div>
-
-      <div class="card">
         <div class="card-head"><span class="engine-dot unity"></span><h3>Aerial War — Vertical Shoot 'Em Up</h3></div>
         <div class="card-body">
           <p>Aerial War is a vertical shoot 'em up with one-touch controls: drag to fly, your guns fire on their own. It features 50 missions across 5 themed worlds, 5 boss fights, an Endless mode and a Daily Challenge.
@@ -1513,12 +1503,32 @@
       </div>
 
       <div class="card">
+        <div class="card-head"><span class="engine-dot unity"></span><h3>Vanguard — Mobile First-Person Shooter</h3></div>
+        <div class="card-body">
+          <p>Vanguard is a mobile first-person shooter with touch controls and light aim assist. It features a 35-mission campaign across 5 chapters with boss fights, objectives such as planting charges, holding zones and extraction, Deathmatch and Domination modes, an Endless mode with boss waves, and 9 weapons.
+          <br><br>Built a full meta game (armory with weapon upgrades, operatives, loadouts, daily rewards, achievements) on a data-driven architecture, with Ads, IAP and leaderboard systems behind clean, provider-ready interfaces.</p>
+          <div class="btn-group"><a class="btn-icon" href="https://www.youtube.com/watch?v=O2F3ON_4wZI" target="_blank">▶ Video</a></div>
+          <div class="tags"><span>Unity 6</span><span>FPS</span><span>Game Design</span><span>Mobile</span><span>Monetization</span></div>
+        </div>
+      </div>
+
+      <div class="card">
         <div class="card-head"><span class="engine-dot unity"></span><h3>Brain Trio — 3-in-1 Brain Puzzle Game</h3></div>
         <div class="card-body">
           <p>Brain Trio is a portrait puzzle game with three games in one app: balance-scale puzzles, number puzzles and trick questions. It features 200 levels across 20 worlds per game, boss levels, and Survival, Time Attack, Daily Puzzle and Weekly Challenge modes.
           <br><br>Built a full meta game (shop, skins with perks, lives, hints, lucky spin, daily rewards, quests, achievements) on a data-driven architecture, with Ads, IAP and leaderboard systems behind clean, provider-ready interfaces.</p>
           <div class="btn-group"><a class="btn-icon" href="https://play.unity.com/en/games/0823492d-a252-4caf-8cbe-ee222814f91c/build" target="_blank">🎮 Play in Browser</a></div>
           <div class="tags"><span>Unity 6</span><span>Puzzle</span><span>Game Design</span><span>Mobile</span><span>Monetization</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span class="engine-dot unity"></span><h3>Tower Tumble — Hyper-Casual Tower Climber</h3></div>
+        <div class="card-body">
+          <p>Tower Tumble is a hyper-casual tower climber with one-touch controls: hold to climb, swipe to dodge. It features 50 levels across 5 themed worlds, 5 boss fights, an endless Infinite Tower mode and a Daily Climb challenge.
+          <br><br>Built a full meta game (shop, skins with perks, boosters, daily rewards, quests, achievements) on a data-driven architecture, with Ads, IAP and leaderboard systems behind clean, provider-ready interfaces.</p>
+          <div class="btn-group"><a class="btn-icon" href="https://play.unity.com/en/games/50eb6561-d666-4d9b-a6c7-70deecf7fd24/build" target="_blank">🎮 Play in Browser</a></div>
+          <div class="tags"><span>Unity 6</span><span>Hyper-Casual</span><span>Game Design</span><span>Mobile</span><span>Monetization</span></div>
         </div>
       </div>
     </div>
@@ -1670,9 +1680,10 @@
 
   // Hero videos: one per game, played in this order. To add a game, add a line here.
   const heroGames = [
-    { title: "Tower Tumble", src: "assets/tower-tumble.mp4", poster: "assets/tower-tumble.jpg" },
     { title: "Aerial War", src: "assets/aerial-war.mp4", poster: "assets/aerial-war.jpg" },
-    { title: "Brain Trio", src: "assets/brain-trio.mp4", poster: "assets/brain-trio.jpg" }
+    { title: "Vanguard", src: "assets/vanguard.mp4", poster: "assets/vanguard.jpg" },
+    { title: "Brain Trio", src: "assets/brain-trio.mp4", poster: "assets/brain-trio.jpg" },
+    { title: "Tower Tumble", src: "assets/tower-tumble.mp4", poster: "assets/tower-tumble.jpg" }
   ];
 
   const heroVideo = document.querySelector(".hero-video");
