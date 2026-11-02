@@ -86,7 +86,7 @@ Order everywhere (cards **and** hero tabs): **Aerial War, Vanguard, Brain Trio, 
 |---|---|---|---|
 | Aerial War | Aerial War — Vertical Shoot 'Em Up | 📱 Play Store, 🌐 Play HTML5 | — |
 | Vanguard | Vanguard — Mobile First-Person Shooter | 📱 Play Store | `D:\Unity Projects\GameFramework` (kit name "Ironline FPS Kit") |
-| Brain Trio | Brain Trio — 3-in-1 Brain Puzzle Game | 🌐 Play HTML5 | `D:\Unity Projects\My project` (kit name "Puzzle Kit") |
+| Brain Trio | Brain Trio — 3-in-1 Brain Puzzle Game | 📱 Play Store, 🌐 Play HTML5 | `D:\Unity Projects\My project` (kit name "Puzzle Kit") |
 | Tower Tumble | Tower Tumble — Hyper-Casual Tower Climber | 📱 Play Store, 🌐 Play HTML5 | — |
 
 Links:
@@ -95,7 +95,7 @@ Links:
 |---|---|---|
 | Aerial War | `https://play.google.com/store/apps/details?id=com.riftscargames.aerialwar` | `https://playgama.ai/play/xpvgootimue5ce` |
 | Vanguard | `https://play.google.com/store/apps/details?id=com.riftscargames.vanguard` | — |
-| Brain Trio | `https://play.google.com/store/apps/details?id=com.riftscargames.braintrio` (**in the CV only — see §9**) | `https://playgama.ai/play/cdkmv7hhpmye42` |
+| Brain Trio | `https://play.google.com/store/apps/details?id=com.riftscargames.braintrio` | `https://playgama.ai/play/cdkmv7hhpmye42` |
 | Tower Tumble | `https://play.google.com/store/apps/details?id=com.riftscargames.towertumble` | `https://playgama.ai/play/ao4sgqeeyvvegw` |
 
 Retired links (were removed on purpose, don't re-add): Unity Play builds (`play.unity.com/...`) and YouTube video links for all four games.
@@ -137,7 +137,6 @@ Card description pattern (keep new games consistent): paragraph 1 = genre, contr
 
 ## 9. Open items / known issues
 
-- **Brain Trio Play Store link is in the CV but not on the portfolio card** (the card only has Play HTML5). Ask the user whether to add `📱 Play Store` to the card.
 - **Vanguard has no HTML5 build** yet; add a Play HTML5 button when he gives a link.
 - Hero buttons wrap to two rows at ~1024 px wide (fine at 1280+ and on phones).
 - `vanguard.mp4` is 46.8 MB — close to GitHub's 50 MB warning.
