@@ -145,7 +145,7 @@ Card description pattern (keep new games consistent): paragraph 1 = genre, contr
 
 - **Deed & Dice and Nitro Blitz are not on Google Play yet** (packages `com.riftscargames.deedanddice` / `com.riftscargames.nitroblitz`); add a Play Store button when they go live. Both are also missing from the CV.
 - CrazyGames links are stored without the `?bypassCache=…` part the user's copied links had (that is a cache-busting test parameter).
-- `nitro_blitz_45s.mp4` (89 MB) and `DeedAndDice_PlayStore_Trailer.mp4` (59 MB) are over GitHub's 50 MB warning; 100 MB is a hard reject.
+- `nitro_blitz_45s.mp4` and `DeedAndDice_PlayStore_Trailer.mp4` were compressed at the user's request on 2026-11-05 (89 → 28 MB and 59 → 21 MB; still 1080p with audio: `-c:v libx264 -preset slow -crf 26 -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart`). The originals are in git history (commit `c8b91c3`).
 - Hero buttons wrap to two rows at ~1024 px wide (fine at 1280+ and on phones).
 - `vanguard.mp4` is 46.8 MB — close to GitHub's 50 MB warning.
 - The `<title>` still says "… | AI Solutions Architect" although the AI zone is hidden — only change if asked.
