@@ -1,6 +1,6 @@
 # Faizan Ahmed Portfolio — Handoff
 
-Last updated: 2026-11-02. Read this first when continuing work on the portfolio (any account, any session).
+Last updated: 2026-11-05. Read this first when continuing work on the portfolio (any account, any session).
 
 ## 1. At a glance
 
@@ -18,7 +18,7 @@ Last updated: 2026-11-02. Read this first when continuing work on the portfolio 
 | Path | What it is |
 |---|---|
 | `index.html` | The whole site (~1850 lines). Section map in §4. |
-| `assets/<game>.mp4` | Hero gameplay videos, one per game: `aerial-war`, `vanguard`, `brain-trio`, `tower-tumble`. The user records and drops these in himself (full size, 1080p, with audio). |
+| `assets/<game>.mp4` | Hero gameplay videos, one per game: `aerial-war`, `vanguard`, `brain-trio`, `tower-tumble`, plus `DeedAndDice_PlayStore_Trailer.mp4` and `nitro_blitz_45s.mp4` (kept under the user's own file names). The user records and drops these in himself (full size, 1080p, with audio). |
 | `assets/<game>.jpg` | Poster (still shown while that video loads). 1280 px wide, made with ffmpeg (§7). |
 | `assets/Faizan-Ahmed-CV.pdf` | The CV that the site's "Download CV" and Resume buttons open. Copy of the PDF in Downloads (§6). |
 | `.claude/launch.json` | Local preview server config for Claude Code (`python -m http.server 5173`). |
@@ -68,9 +68,11 @@ A per-game player in a tilted glowing frame (flattens on hover).
 
 ```js
 const heroGames = [
-  { title: "Aerial War", src: "assets/aerial-war.mp4", poster: "assets/aerial-war.jpg" },
+  { title: "Deed & Dice (Monopoly)", src: "assets/DeedAndDice_PlayStore_Trailer.mp4", poster: "assets/deed-and-dice.jpg" },
+  { title: "Nitro Blitz", src: "assets/nitro_blitz_45s.mp4", poster: "assets/nitro-blitz.jpg" },
   { title: "Vanguard", src: "assets/vanguard.mp4", poster: "assets/vanguard.jpg" },
   { title: "Brain Trio", src: "assets/brain-trio.mp4", poster: "assets/brain-trio.jpg" },
+  { title: "Aerial War", src: "assets/aerial-war.mp4", poster: "assets/aerial-war.jpg" },
   { title: "Tower Tumble", src: "assets/tower-tumble.mp4", poster: "assets/tower-tumble.jpg" }
 ];
 ```
@@ -80,21 +82,25 @@ const heroGames = [
 
 ## 6. The games (Indie Originals)
 
-Order everywhere (cards **and** hero tabs): **Aerial War, Vanguard, Brain Trio, Tower Tumble**. All tags pattern: `Unity 6`, genre, `Game Design`, `Mobile`, `Monetization`. Card buttons do **not** include a video link (the hero already shows the videos).
+Order everywhere (cards **and** hero tabs, set by the user 2026-11-05): **Deed & Dice, Nitro Blitz, Vanguard, Brain Trio, Aerial War, Tower Tumble**. With six tabs the tab row wraps to two lines (4 + 2) at 1280 px. All tags pattern: `Unity 6`, genre, `Game Design`, `Mobile`, `Monetization`. Card buttons do **not** include a video link (the hero already shows the videos).
 
 | Game | Card title | Buttons on the portfolio card | Unity project |
 |---|---|---|---|
+| Deed & Dice | Deed & Dice — Property Trading Game (Monopoly) (title chosen by the user 2026-11-05) | 🌐 Play HTML5 (CrazyGames; not on Google Play yet) | `D:\Unity Projects\Monopoly` (Asset Store kit "Dice Tycoon"); "Monopoly" is kept out of the game's own store/portal text; on the portfolio card the user wants it in the title |
+| Nitro Blitz | Nitro Blitz — Arcade Street Racer | 🌐 Play HTML5 (CrazyGames; not on Google Play yet) | `D:\Unity Projects\Racing Game` (kit "Racing Line Kit") |
 | Aerial War | Aerial War — Vertical Shoot 'Em Up | 📱 Play Store, 🌐 Play HTML5 | — |
-| Vanguard | Vanguard — Mobile First-Person Shooter | 📱 Play Store | `D:\Unity Projects\GameFramework` (kit name "Ironline FPS Kit") |
+| Vanguard | Vanguard — Mobile First-Person Shooter | 📱 Play Store, 🌐 Play HTML5 (CrazyGames) | `D:\Unity Projects\GameFramework` (kit name "Ironline FPS Kit") |
 | Brain Trio | Brain Trio — 3-in-1 Brain Puzzle Game | 📱 Play Store, 🌐 Play HTML5 | `D:\Unity Projects\My project` (kit name "Puzzle Kit") |
 | Tower Tumble | Tower Tumble — Hyper-Casual Tower Climber | 📱 Play Store, 🌐 Play HTML5 | — |
 
 Links:
 
-| Game | Play Store | HTML5 (Playgama) |
+| Game | Play Store | HTML5 (Playgama or CrazyGames) |
 |---|---|---|
+| Deed & Dice | — (package `com.riftscargames.deedanddice`, not live) | `https://www.crazygames.com/game/deed-dice-property-trading-game` |
+| Nitro Blitz | — (package `com.riftscargames.nitroblitz`, not live) | `https://www.crazygames.com/game/nitro-blitz-car-racing-game` |
 | Aerial War | `https://play.google.com/store/apps/details?id=com.riftscargames.aerialwar` | `https://playgama.ai/play/xpvgootimue5ce` |
-| Vanguard | `https://play.google.com/store/apps/details?id=com.riftscargames.vanguard` | — |
+| Vanguard | `https://play.google.com/store/apps/details?id=com.riftscargames.vanguard` | `https://www.crazygames.com/game/vanguard-fps-shooting-game` |
 | Brain Trio | `https://play.google.com/store/apps/details?id=com.riftscargames.braintrio` | `https://playgama.ai/play/cdkmv7hhpmye42` |
 | Tower Tumble | `https://play.google.com/store/apps/details?id=com.riftscargames.towertumble` | `https://playgama.ai/play/ao4sgqeeyvvegw` |
 
@@ -137,7 +143,9 @@ Card description pattern (keep new games consistent): paragraph 1 = genre, contr
 
 ## 9. Open items / known issues
 
-- **Vanguard has no HTML5 build** yet; add a Play HTML5 button when he gives a link.
+- **Deed & Dice and Nitro Blitz are not on Google Play yet** (packages `com.riftscargames.deedanddice` / `com.riftscargames.nitroblitz`); add a Play Store button when they go live. Both are also missing from the CV.
+- CrazyGames links are stored without the `?bypassCache=…` part the user's copied links had (that is a cache-busting test parameter).
+- `nitro_blitz_45s.mp4` (89 MB) and `DeedAndDice_PlayStore_Trailer.mp4` (59 MB) are over GitHub's 50 MB warning; 100 MB is a hard reject.
 - Hero buttons wrap to two rows at ~1024 px wide (fine at 1280+ and on phones).
 - `vanguard.mp4` is 46.8 MB — close to GitHub's 50 MB warning.
 - The `<title>` still says "… | AI Solutions Architect" although the AI zone is hidden — only change if asked.
